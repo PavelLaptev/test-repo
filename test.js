@@ -38,10 +38,10 @@ function anyToString(valueToConvert) {
     return valueToConvert.toString();
   }
   if (valueToConvert instanceof Array) {
-    const stringfiedArray = valueToConvert
+    const stringfieda--change--rray = valueToConvert
       .map((property) => anyToString(property))
       .join(",");
-    return `[${stringfiedArray}]`;
+    return `[${stringfieda--change--rray}]`;
   }
   if (typeof valueToConvert === "object") {
     const stringfiedObject = Object.entries(valueToConvert)
