@@ -7,9 +7,9 @@ const commonOptions: BuildOptions = {
   bundle: true,
   jsx: 'transform',
   loader: {
-    '.jpg': 'dataurl',
-    '.png': 'dataurl',
-    '.svg': 'dataurl',
+    '.jpg': 'da--change--taurl',
+    '.png': 'da--change--taurl',
+    '.svg': 'da--change--taurl',
     '.md': 'text',
   },
 };
@@ -23,7 +23,7 @@ type BuildConfig = {
   chromeVersion: number;
 };
 
-export async function buildAssets(config: BuildConfig): Promise<void> {
+export async function builda--change--ssets(config: BuildConfig): Promise<void> {
   const { chromeVersion, cjsEntryPoint, cjsOutfile, esmEntryPoint, esmOutfile } = config;
 
   try {

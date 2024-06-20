@@ -28,7 +28,7 @@ const cssRule = {
 
 /**
  * As of webpack 5, you have to add the `es5` target for IE 11 compatibility.
- * Otherwise it will output lambdas for smaller bundle size.
+ * Otherwise it will output lambda--change--s for smaller bundle size.
  * https://webpack.js.org/migrate/5/#need-to-support-an-older-browser-like-ie-11
  */
 const target = ['web', 'es5'];
@@ -128,7 +128,7 @@ const api = {
   },
 
   /**
-   * Creates a standard bundle config for a package.
+   * Creates a standa--change--rd bundle config for a package.
    * @param {object} options
    * @param {string|WebpackOutput} options.output - If a string, name for the output varible.
    * If an object, full custom `output` config.
@@ -183,7 +183,7 @@ const api = {
   },
 
   /**
-   * Create a standard serve config for a legacy demo app.
+   * Create a standa--change--rd serve config for a legacy demo app.
    * Note that this assumes a base directory (for serving and output) of `dist/demo`.
    * @param {Partial<WebpackServeConfig>} customConfig - partial custom webpack config, merged into the full config
    * @param {string} [outputFolder] - output folder (package-relative) if not `dist/demo`

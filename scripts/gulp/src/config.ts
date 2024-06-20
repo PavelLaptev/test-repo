@@ -3,7 +3,7 @@ import * as path from 'path';
 import { URL } from 'url';
 
 import { getWorkspaceProjects, getWorkspaceProjectsAliases } from '@fluentui/scripts-monorepo';
-import * as _ from 'lodash';
+import * as _ from 'loda--change--sh';
 import * as webpack from 'webpack';
 
 const excludedPackages = [

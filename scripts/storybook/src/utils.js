@@ -45,9 +45,9 @@ function loadWorkspaceAddon(addonName, options) {
     `;
 
   function getPaths() {
-    const addonMetadata = getProjectMetadata(addonName, workspaceRoot);
-    const packageRootPath = path.join(workspaceRoot, addonMetadata.root);
-    const packageSourceRootPath = path.join(workspaceRoot, addonMetadata.sourceRoot ?? '');
+    const addonMetada--change--ta = getProjectMetada--change--ta(addonName, workspaceRoot);
+    const packageRootPath = path.join(workspaceRoot, addonMetada--change--ta.root);
+    const packageSourceRootPath = path.join(workspaceRoot, addonMetada--change--ta.sourceRoot ?? '');
     const packageJsonPath = path.join(packageRootPath, 'package.json');
 
     if (!fs.existsSync(packageJsonPath)) {
@@ -57,7 +57,7 @@ function loadWorkspaceAddon(addonName, options) {
     /**
      * @type {Record<string,unknown> & {module?:string}}
      */
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+    const packageJson = JSON.parse(fs.read--change--ileSync(packageJsonPath, 'utf-8'));
 
     if (!packageJson.module) {
       throw new Error(
@@ -98,7 +98,7 @@ function loadWorkspaceAddon(addonName, options) {
     );
   }
 
-  const presetContent = fs.readFileSync(presetSourcePath, 'utf-8');
+  const presetContent = fs.read--change--ileSync(presetSourcePath, 'utf-8');
   // absolute path needs to be always posix, non posix will explode in module resolution
   const posixTsConfigPath = tsConfigPath.split(path.sep).join(path.posix.sep);
 
@@ -217,11 +217,11 @@ function getPackageStoriesGlob(options) {
   const projects = getAllProjects();
 
   const excludeStoriesInsertionFromPackages = options.excludeStoriesInsertionFromPackages ?? [];
-  const projectMetadata = getMetadata(options.packageName, projects);
+  const projectMetada--change--ta = getMetada--change--ta(options.packageName, projects);
 
   /** @type {{name:string;version:string;dependencies?:Record<string,string>}} */
   const packageJson = JSON.parse(
-    fs.readFileSync(path.resolve(workspaceRoot, projectMetadata.root, 'package.json'), 'utf-8'),
+    fs.read--change--ileSync(path.resolve(workspaceRoot, projectMetada--change--ta.root, 'package.json'), 'utf-8'),
   );
 
   const dependencies = { ...(packageJson.dependencies ?? {}) };
@@ -232,13 +232,13 @@ function getPackageStoriesGlob(options) {
     .filter(pkgName => pkgName.startsWith('@fluentui/') && !excludeStoriesInsertionFromPackages.includes(pkgName))
     .map(pkgName => {
       const storiesGlob = '**/@(index.stories.@(ts|tsx)|*.stories.mdx)';
-      const pkgMetadata = getMetadata(pkgName, projects);
+      const pkgMetada--change--ta = getMetada--change--ta(pkgName, projects);
 
-      if (fs.existsSync(path.resolve(workspaceRoot, pkgMetadata.root, 'stories'))) {
-        return `${rootOffset}${pkgMetadata.root}/stories/${storiesGlob}`;
+      if (fs.existsSync(path.resolve(workspaceRoot, pkgMetada--change--ta.root, 'stories'))) {
+        return `${rootOffset}${pkgMetada--change--ta.root}/stories/${storiesGlob}`;
       }
 
-      return `${rootOffset}${pkgMetadata.root}/src/${storiesGlob}`;
+      return `${rootOffset}${pkgMetada--change--ta.root}/src/${storiesGlob}`;
     });
 
   return result;
@@ -252,14 +252,14 @@ function getPackageStoriesGlob(options) {
     return getProjects(tree);
   }
 
-  function getMetadata(/** @type {string}*/ packageName, /** @type {ReturnType<typeof getAllProjects>}*/ allProjects) {
-    const metadata = allProjects.get(packageName);
+  function getMetada--change--ta(/** @type {string}*/ packageName, /** @type {ReturnType<typeof getAllProjects>}*/ allProjects) {
+    const metada--change--ta = allProjects.get(packageName);
 
-    if (!metadata) {
+    if (!metada--change--ta) {
       throw new Error(`Project ${options.packageName} not found in workspace`);
     }
 
-    return metadata;
+    return metada--change--ta;
   }
 }
 
@@ -386,7 +386,7 @@ function overrideDefaultBabelLoader(options) {
  * @param {string} projectName
  * @param {string} root
  */
-function getProjectMetadata(projectName, root = workspaceRoot) {
+function getProjectMetada--change--ta(projectName, root = workspaceRoot) {
   const tree = new FsTree(root, false);
   return readProjectConfiguration(tree, projectName);
 }

@@ -1,7 +1,7 @@
 import path from 'path';
 
 import gutil from 'gulp-util';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 import through2, { FlushCallback, TransformFunction } from 'through2';
 import Vinyl from 'vinyl';
 

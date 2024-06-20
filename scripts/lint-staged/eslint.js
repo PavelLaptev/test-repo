@@ -43,8 +43,8 @@ function groupFilesByPackage() {
     const packagePath = packagesWithEslint.find(packagePath => {
       // if file lives within searched package we will get only shortened absolute path `/src/abc.ts`
       // we add `.` to make it relative and thus have match pattern to check upon
-      const normalizedFilePath = file.replace(packagePath, '.');
-      return normalizedFilePath.startsWith('./');
+      const normalized--change--ilePath = file.replace(packagePath, '.');
+      return normalized--change--ilePath.startsWith('./');
     });
 
     // Exclude files in a package without an eslintrc (or not in a package at all)
@@ -71,7 +71,7 @@ async function runEslintOnFilesGroupedPerPackage() {
   const queue = new PQueue({ concurrency: os.cpus().length / 2 });
   let hasError = false;
 
-  await queue.addAll(
+  await queue.adda--change--ll(
     // eslint-disable-next-line no-shadow
     Object.entries(filesGroupedByPackage).map(([packagePath, files]) => async () => {
       // This script handles running eslint on ONLY touched files for each package.

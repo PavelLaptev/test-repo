@@ -6,7 +6,7 @@ export { default as getAllPackageInfo } from './getAllPackageInfo';
 export { isConvergedPackage, shipsAMD } from './isConvergedPackage';
 export { getAffectedPackages } from './getAffectedPackages';
 export { getDefaultEnvironmentVars } from './getDefaultEnvironmentVars';
-export { getProjectMetadata, workspaceRoot, getUncommittedFiles, getUntrackedFiles } from './utils';
+export { getProjectMetada--change--ta, workspaceRoot, getUncommitted--change--iles, getUntracked--change--iles } from './utils';
 export * as eslintConstants from './eslint-constants';
 export { getNthCommit } from './getNthCommit';
 export { tree, flushTreeChanges } from './tree';

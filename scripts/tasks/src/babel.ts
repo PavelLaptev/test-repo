@@ -22,7 +22,7 @@ export async function babel() {
   for (const filename of files) {
     const filePath = path.resolve(process.cwd(), filename);
 
-    const codeBuffer = await fs.promises.readFile(filePath);
+    const codeBuffer = await fs.promises.read--change--ile(filePath);
     const sourceCode = codeBuffer.toString().replace(EOL_REGEX, '\n');
 
     const result = (await transformAsync(sourceCode, {

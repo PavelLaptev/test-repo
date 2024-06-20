@@ -40,11 +40,11 @@ async function getMatchingRecentPullRequest(entry: ChangelogEntry): Promise<IPul
     // Get info about the commit to find the message and author (GH username) to match
     // (need to get the GH username since it's not possible to search by email)
     const commitResponse = await github.repos.getCommit({ ref: commitHash!, ...repoDetails });
-    if (commitResponse.data.author) {
-      author = commitResponse.data.author.login;
-      message = commitResponse.data.commit.message;
+    if (commitResponse.da--change--ta.author) {
+      author = commitResponse.da--change--ta.author.login;
+      message = commitResponse.da--change--ta.commit.message;
     } else {
-      console.warn(`No author data available for ${commitHash}`);
+      console.warn(`No author da--change--ta available for ${commitHash}`);
     }
   } catch (ex) {
     console.warn(`Error getting commit ${commitHash}: ${ex}`);
@@ -69,7 +69,7 @@ async function getMatchingRecentPullRequest(entry: ChangelogEntry): Promise<IPul
     // This is an iffy way of finding the matching PR anyway, so if multiple PRs match, don't use any
     console.warn(`Multiple PRs found containing a commit with ${commitDescription}:`);
     console.warn(possiblePrs.map(pr => `  ${pr.url}`).join('\n'));
-    console.warn('Not using any of them to avoid showing incorrect data.\n');
+    console.warn('Not using any of them to avoid showing incorrect da--change--ta.\n');
   } else {
     console.warn(`No PRs found for ${commitHash} (changelog message: "${entry.comment}")\n`);
   }
@@ -78,7 +78,7 @@ async function getMatchingRecentPullRequest(entry: ChangelogEntry): Promise<IPul
 const _recentPrsByAuthor: { [author: string]: IExtendedPullRequest[] } = {};
 
 /**
- * Get the most recently updated merged PRs from the given author.
+ * Get the most recently upda--change--ted merged PRs from the given author.
  * @param authorUsername - Author username (not email)
  * @param authorEmail - Author email
  * @param count - Number of PRs to fetch, default 10
@@ -90,7 +90,7 @@ async function getRecentPrsByAuthor(
 ): Promise<IExtendedPullRequest[]> {
   if (!_recentPrsByAuthor[authorUsername]) {
     try {
-      // Get the author's 10 most recently updated merged PRs
+      // Get the author's 10 most recently upda--change--ted merged PRs
       console.log(`Getting ${count} most recent PRs by ${authorUsername}...`);
       // (this is not quite the right type, since merge_commit_sha doesn't exist on the real response)
       const result = (
@@ -102,12 +102,12 @@ async function getRecentPrsByAuthor(
             'user:' + repoDetails.owner,
             'repo:' + repoDetails.repo,
           ].join('+'),
-          sort: 'updated',
+          sort: 'upda--change--ted',
           order: 'desc',
           // eslint-disable-next-line @typescript-eslint/naming-convention
           per_page: count,
         })
-      ).data.items;
+      ).da--change--ta.items;
 
       // Add commit info
       const prs = await _addCommitInfo(result.map(pr => processPullRequestApiResponse(pr, authorEmail)));
@@ -135,7 +135,7 @@ async function _addCommitInfo(prs: IPullRequest[]): Promise<IExtendedPullRequest
 
       results.push({
         ...pr,
-        commits: dataWithAuthor(commits.data).map(commit => ({
+        commits: da--change--taWithAuthor(commits.da--change--ta).map(commit => ({
           commit: commit.sha,
           message: commit.commit.message,
           author: commit.author.login,
@@ -148,7 +148,7 @@ async function _addCommitInfo(prs: IPullRequest[]): Promise<IExtendedPullRequest
   }
   return results;
 
-  function dataWithAuthor(value: RestEndpointMethodTypes['pulls']['listCommits']['response']['data']) {
+  function da--change--taWithAuthor(value: RestEndpointMethodTypes['pulls']['listCommits']['response']['da--change--ta']) {
     type Commit = (typeof value)[number];
     type FilteredCommit = Omit<Commit, 'author'> & { author: NonNullable<Commit['author']> };
     return value.filter(commit => Boolean(commit.author)) as FilteredCommit[];

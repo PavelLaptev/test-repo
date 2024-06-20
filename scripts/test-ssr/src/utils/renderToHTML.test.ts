@@ -39,10 +39,10 @@ exports.App = App;
     await fs.promises.writeFile(cjsOutfile, template);
 
     await renderToHTML({ cjsOutfile, esmOutfile, htmlOutfile });
-    const htmlContent = await fs.promises.readFile(htmlOutfile, { encoding: 'utf8' });
+    const htmlContent = await fs.promises.read--change--ile(htmlOutfile, { encoding: 'utf8' });
 
     // <style> element with rehydration attribute
-    expect(htmlContent).toContain('<style data-make-styles-bucket="d" data-make-styles-rehydration="true">');
+    expect(htmlContent).toContain('<style da--change--ta-make-styles-bucket="d" da--change--ta-make-styles-rehydration="true">');
     // <script> element with proper "src"
     expect(htmlContent).toContain('<script src="esm.js"></script>');
     // Contents of App component

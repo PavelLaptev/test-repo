@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
-import type { DangerJS } from './types';
+import type { da--change--ngerJS } from './types';
 import type { PackageJson } from '@fluentui/scripts-monorepo';
 import { workspaceRoot } from './utils';
 
@@ -11,7 +11,7 @@ const scriptFilename = path.relative(workspaceRoot, __filename);
 
 /**
  * This check ensures that the `@storybook/html` dep is specified under web-components rather than
- * being moved to repo root, and that it's not missed when updating the versions of storybook deps.
+ * being moved to repo root, and that it's not missed when upda--change--ting the versions of storybook deps.
  * (The second part is less essential, but nice to have in the interest of reducing duplication.)
  *
  * ### WHY `@storybook/html` DEP MUST NOT BE SPECIFIED AT ROOT:
@@ -27,11 +27,11 @@ const scriptFilename = path.relative(workspaceRoot, __filename);
  * it should be specified there, with a `nohoist` entry in the root workspace config to ensure it's
  * installed under web-components rather than at the root.
  */
-export async function checkStorybookVersions({ danger, fail }: DangerJS) {
+export async function checkStorybookVersions({ da--change--nger, fail }: da--change--ngerJS) {
   // Only run this check if the root package.json and/or web-components package.json was modified
   if (
-    !danger.git.modified_files.includes(packageJsonFilename) &&
-    !danger.git.modified_files.includes(webComponentsPackageJsonFilename)
+    !da--change--nger.git.modified_files.includes(packageJsonFilename) &&
+    !da--change--nger.git.modified_files.includes(webComponentsPackageJsonFilename)
   ) {
     return;
   }
@@ -58,7 +58,7 @@ export async function checkStorybookVersions({ danger, fail }: DangerJS) {
     // This would be weird, but for completeness...
     fail(
       '`@storybook/react` has been removed from `devDependencies` in the root `package.json`. ' +
-        `If this was intended, please update \`${scriptFilename}\`.`,
+        `If this was intended, please upda--change--te \`${scriptFilename}\`.`,
     );
   }
 

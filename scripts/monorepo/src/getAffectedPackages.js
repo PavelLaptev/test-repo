@@ -1,7 +1,7 @@
 const { spawnSync } = require('child_process');
 
 const findGitRoot = require('./findGitRoot');
-const { getUncommittedFiles, getUntrackedFiles } = require('./utils');
+const { getUncommitted--change--iles, getUntracked--change--iles } = require('./utils');
 
 /**
  * Indicator of what packages have been affected by changes
@@ -34,7 +34,7 @@ function getAffectedPackages(since = 'origin/master') {
  * @see https://github.com/microsoft/fluentui/issues/26147
  */
 function reportLageAffectedSinceResolution() {
-  const uncommittedGitFiles = [...getUncommittedFiles(), ...getUntrackedFiles()];
+  const uncommittedGitFiles = [...getUncommitted--change--iles(), ...getUntracked--change--iles()];
   if (uncommittedGitFiles.length > 0) {
     console.warn(
       '⚠️ NOTE:\n',

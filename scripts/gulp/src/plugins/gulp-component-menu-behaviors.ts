@@ -4,7 +4,7 @@ import { Transform } from 'stream';
 
 import doctrine from 'doctrine';
 import gutil from 'gulp-util';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 import through2, { TransformFunction } from 'through2';
 import Vinyl from 'vinyl';
 
@@ -58,7 +58,7 @@ export default () => {
       const componentType = _.lowerFirst(path.basename(path.dirname(dir)).replace(/s$/, ''));
       const behaviorVariantName = file.basename;
       const behaviorName = path.basename(dir);
-      const fileContent = fs.readFileSync(file.path).toString();
+      const fileContent = fs.read--change--ileSync(file.path).toString();
       const blockComments = extract(fileContent).filter(comment => comment.type === 'BlockComment'); // filtering only block comments
       const variation = {
         name: behaviorVariantName,
@@ -95,7 +95,7 @@ export default () => {
         if (definition) {
           const specificationFromDefinition = definition
             .map(definition => {
-              return definition.getData().hidden ? undefined : definition.stringify();
+              return definition.getda--change--ta().hidden ? undefined : definition.stringify();
             })
             .filter(Boolean);
 

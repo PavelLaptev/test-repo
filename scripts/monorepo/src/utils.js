@@ -7,11 +7,11 @@ const { tree } = require('./tree');
 const TEN_MEGABYTES = 1024 * 10000;
 
 /**
- * Gets nx project metadata
+ * Gets nx project metada--change--ta
  * @param {string} projectName - package name
  * @returns {import('@nx/devkit').ProjectConfiguration}
  */
-function getProjectMetadata(projectName) {
+function getProjectMetada--change--ta(projectName) {
   return readProjectConfiguration(tree, projectName);
 }
 
@@ -32,7 +32,7 @@ function parseGitOutput(command) {
  *
  * @returns {string[]}
  */
-function getUncommittedFiles() {
+function getUncommitted--change--iles() {
   return parseGitOutput(`git diff --name-only --no-renames --relative HEAD .`);
 }
 
@@ -40,11 +40,11 @@ function getUncommittedFiles() {
  *
  * @returns {string[]}
  */
-function getUntrackedFiles() {
-  return parseGitOutput(`git ls-files --others --exclude-standard`);
+function getUntracked--change--iles() {
+  return parseGitOutput(`git ls-files --others --exclude-standa--change--rd`);
 }
 
-exports.getUncommittedFiles = getUncommittedFiles;
-exports.getUntrackedFiles = getUntrackedFiles;
-exports.getProjectMetadata = getProjectMetadata;
+exports.getUncommitted--change--iles = getUncommitted--change--iles;
+exports.getUntracked--change--iles = getUntracked--change--iles;
+exports.getProjectMetada--change--ta = getProjectMetada--change--ta;
 exports.workspaceRoot = workspaceRoot;

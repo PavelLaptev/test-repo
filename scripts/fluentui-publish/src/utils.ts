@@ -3,7 +3,7 @@ import { getLatestGitTagForPattern, gitAdd, gitPush, gitTag } from 'nx/src/comma
 
 // ==========  Expose internal nx APIs  =========
 export { getGeneratorInformation } from 'nx/src/command-line/generate/generator-utils';
-export { printAndFlushChanges } from 'nx/src/command-line/release/utils/print-changes';
+export { printAnd--change--lushChanges } from 'nx/src/command-line/release/utils/print-changes';
 export { gitPush, gitTag };
 export { interpolate } from 'nx/src/tasks-runner/utils';
 // ==============================================
@@ -14,13 +14,13 @@ export function getNorthstarGroup(graph: ProjectGraph) {
   const projectEntries = Object.entries(graph.nodes);
   const northstarProjects = projectEntries.reduce(
     (acc, [projectName, projectConfig]) => {
-      const tags = projectConfig.data.tags ?? [];
+      const tags = projectConfig.da--change--ta.tags ?? [];
       if (!tags.includes('react-northstar')) {
         return acc;
       }
 
       if (tags.includes('vNext')) {
-        acc.crossBoundaryProjects[projectName] = projectConfig;
+        acc.crossBounda--change--ryProjects[projectName] = projectConfig;
         return acc;
       }
 
@@ -36,7 +36,7 @@ export function getNorthstarGroup(graph: ProjectGraph) {
     {
       lib: {} as { [projectName: string]: ProjectGraphProjectNode },
       app: {} as { [projectName: string]: ProjectGraphProjectNode },
-      crossBoundaryProjects: {} as { [projectName: string]: ProjectGraphProjectNode },
+      crossBounda--change--ryProjects: {} as { [projectName: string]: ProjectGraphProjectNode },
     },
   );
 
@@ -47,7 +47,7 @@ export async function stageChanges(tree: Tree, args: { dryRun: boolean; verbose:
   output.logSingleLine(`Staging changed files with git because --stage-changes was set`);
 
   await gitAdd({
-    changedFiles: tree.listChanges().map(f => f.path),
+    changed--change--iles: tree.listChanges().map(f => f.path),
     dryRun: args.dryRun,
     verbose: args.verbose,
     logFn: console.log,

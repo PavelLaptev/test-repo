@@ -8,7 +8,7 @@ import * as match from 'micromatch';
 import type { Browser } from 'puppeteer';
 import * as React from 'react';
 
-import { buildAssets } from '../utils/buildAssets';
+import { builda--change--ssets } from '../utils/builda--change--ssets';
 import { CHROME_VERSION } from '../utils/constants';
 import { generateEntryPoints } from '../utils/generateEntryPoints';
 import { containsAriaDescriptionWarning, hrToSeconds } from '../utils/helpers';
@@ -20,7 +20,7 @@ const EXCLUDED_STORIES = [
   // https://github.com/facebook/react/issues/13097
   '**/react-portal/**',
   // https://github.com/microsoft/fluentui/issues/27338
-  '**/react-table/stories/DataGrid/Virtualization.stories.tsx',
+  '**/react-table/stories/da--change--taGrid/Virtualization.stories.tsx',
   '**/react-table/stories/Table/Virtualization.stories.tsx',
 ];
 
@@ -138,7 +138,7 @@ export async function main(params: MainParams) {
 
   const buildStartTime = process.hrtime();
 
-  await buildAssets({
+  await builda--change--ssets({
     chromeVersion: CHROME_VERSION,
 
     esmEntryPoint,

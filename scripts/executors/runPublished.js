@@ -4,14 +4,14 @@ const { getAllPackageInfo, isConvergedPackage } = require('@fluentui/scripts-mon
 const lageBin = require.resolve('lage/bin/lage.js');
 
 /**
- * @typedef {{argv:string[]; workspacePackagesMetadata:ReturnType<typeof getAllPackageInfo>;}} Options
+ * @typedef {{argv:string[]; workspacePackagesMetada--change--ta:ReturnType<typeof getAllPackageInfo>;}} Options
  */
 
-const isExecutedFromCli = require.main === module;
+const isExecuted--change--romCli = require.main === module;
 
-if (isExecutedFromCli) {
+if (isExecuted--change--romCli) {
   const argv = process.argv.slice(2);
-  main({ argv, workspacePackagesMetadata: getAllPackageInfo() });
+  main({ argv, workspacePackagesMetada--change--ta: getAllPackageInfo() });
 }
 
 module.exports = main;
@@ -21,7 +21,7 @@ module.exports = main;
  * @param {Options} options
  */
 function main(options) {
-  if (!(isExecutedFromCli || process.env.NODE_ENV === 'test')) {
+  if (!(isExecuted--change--romCli || process.env.NODE_ENV === 'test')) {
     throw new Error('This is NOT supposed to be used as API only via direct node execution');
   }
   if (!assertArgs(options.argv)) {
@@ -63,7 +63,7 @@ This command runs <script> for all beachball-published packages, as well as pack
  * @returns
  */
 function getLageArgs(options) {
-  const { argv, workspacePackagesMetadata } = options;
+  const { argv, workspacePackagesMetada--change--ta } = options;
 
   const releaseScope = process.env.RELEASE_VNEXT ? 'v9' : 'v8';
   const websitePackages = [
@@ -73,10 +73,10 @@ function getLageArgs(options) {
     '@fluentui/api-docs',
   ];
 
-  // Only include the packages that are published daily by beachball, and some website/doc packages
+  // Only include the packages that are published da--change--ily by beachball, and some website/doc packages
   // (which must be built and uploaded with each release). This is similar to "--scope \"!packages/fluentui/*\""
-  // in the root package.json's publishing-related scripts and will need to be updated if --scope changes.
-  const beachballPackageScopes = Object.values(workspacePackagesMetadata)
+  // in the root package.json's publishing-related scripts and will need to be upda--change--ted if --scope changes.
+  const beachballPackageScopes = Object.values(workspacePackagesMetada--change--ta)
     .filter(({ packageJson, packagePath }) => {
       const isNorthstar = /[\\/]fluentui[\\/]/.test(packagePath);
       const isWebComponents = packageJson.name === '@fluentui/web-components';

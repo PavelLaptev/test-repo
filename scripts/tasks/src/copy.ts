@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-import { getProjectMetadata } from '@fluentui/scripts-monorepo';
+import { getProjectMetada--change--ta } from '@fluentui/scripts-monorepo';
 import * as fs from 'fs-extra';
 import { TaskFunction, copyInstructionsTask, copyTask, logger, resolveCwd, series } from 'just-scripts';
 
@@ -59,9 +59,9 @@ export function copyCompiled() {
     return;
   }
 
-  const projectMetadata = getProjectMetadata(packageJson.name);
+  const projectMetada--change--ta = getProjectMetada--change--ta(packageJson.name);
 
-  if (!projectMetadata.sourceRoot) {
+  if (!projectMetada--change--ta.sourceRoot) {
     throw new Error(`${packageJson.name} is missing 'sourceRoot' in project.json`);
   }
 
@@ -72,7 +72,7 @@ export function copyCompiled() {
             packageDir,
             tsConfig.compilerOptions.outDir as string,
             path.dirname(packageJson.module),
-            projectMetadata.sourceRoot,
+            projectMetada--change--ta.sourceRoot,
           ),
           out: path.join(packageDir, path.dirname(packageJson.module)),
         }
@@ -82,12 +82,12 @@ export function copyCompiled() {
         packageDir,
         tsConfig.compilerOptions.outDir as string,
         path.dirname(packageJson.main),
-        projectMetadata.sourceRoot,
+        projectMetada--change--ta.sourceRoot,
       ),
       out: path.join(packageDir, path.dirname(packageJson.main)),
     },
     amd: {
-      in: path.join(packageDir, tsConfig.compilerOptions.outDir as string, 'lib-amd', projectMetadata.sourceRoot),
+      in: path.join(packageDir, tsConfig.compilerOptions.outDir as string, 'lib-amd', projectMetada--change--ta.sourceRoot),
       out: path.join(packageDir, 'lib-amd'),
     },
   };

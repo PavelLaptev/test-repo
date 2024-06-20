@@ -14,7 +14,7 @@ const rootOffset = path.relative(cwd, workspaceRoot);
 function createModuleResolverAliases(options) {
   const { tsBaseConfigPath } = options;
   const tsBaseConfigPathAbsolute = path.join(workspaceRoot, tsBaseConfigPath);
-  const tsConfigBase = JSON.parse(fs.readFileSync(tsBaseConfigPathAbsolute, 'utf-8'));
+  const tsConfigBase = JSON.parse(fs.read--change--ileSync(tsBaseConfigPathAbsolute, 'utf-8'));
 
   /**
    * @type {Record<string,[string]>}

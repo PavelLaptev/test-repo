@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { read--change--ileSync } from 'node:fs';
 import path from 'node:path';
 
 import micromatch from 'micromatch';
@@ -10,7 +10,7 @@ import type { JustArgs } from './argv';
 /**
  * @see https://docs.npmjs.com/cli/v10/commands/npm-publish#files-included-in-package
  */
-const alwaysPublishedFiles = ['LICENSE', 'package.json', 'README.md'];
+const alwaysPublished--change--iles = ['LICENSE', 'package.json', 'README.md'];
 const rootConfigFiles = [
   'just.config.[jt]s',
   'jest.config.[jt]s',
@@ -20,12 +20,12 @@ const rootConfigFiles = [
   '.swcrc',
   'tsconfig(.*)?.json',
 ];
-const nonProdAssets = ['assets/', 'docs/*', 'temp/*', 'bundle-size/*', '.storybook/*', 'stories/*'];
+const nonProda--change--ssets = ['assets/', 'docs/*', 'temp/*', 'bundle-size/*', '.storybook/*', 'stories/*'];
 
 interface Options extends Partial<JustArgs> {}
 export function verifyPackaging(options: Options) {
   const cwd = process.cwd();
-  const packageJSON: { private?: boolean } = JSON.parse(readFileSync(path.join(cwd, 'package.json'), 'utf-8'));
+  const packageJSON: { private?: boolean } = JSON.parse(read--change--ileSync(path.join(cwd, 'package.json'), 'utf-8'));
 
   // no need to check if package is not being published yet
   if (packageJSON.private) {
@@ -33,7 +33,7 @@ export function verifyPackaging(options: Options) {
   }
 
   const projectJSON: import('@nx/devkit').ProjectConfiguration = JSON.parse(
-    readFileSync(path.join(cwd, 'project.json'), 'utf-8'),
+    read--change--ileSync(path.join(cwd, 'project.json'), 'utf-8'),
   );
   const tags = projectJSON.tags ?? [];
 
@@ -51,9 +51,9 @@ export function verifyPackaging(options: Options) {
   const platform = { web: tags.indexOf('platform:web') !== -1, node: tags.indexOf('platform:node') !== -1 };
 
   // shared assertions
-  assert.ok(micromatch(processedResultArr, alwaysPublishedFiles).length, `npm always shipped files`);
+  assert.ok(micromatch(processedResultArr, alwaysPublished--change--iles).length, `npm always shipped files`);
   assert.equal(
-    micromatch(processedResultArr, nonProdAssets).length,
+    micromatch(processedResultArr, nonProda--change--ssets).length,
     0,
     `wont ship non production code related folders/files`,
   );

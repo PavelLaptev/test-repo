@@ -157,7 +157,7 @@ export function withDefaultConfig(parserOpts: ParserOptions = defaultParserOpts)
  */
 export function withCustomConfig(tsconfigPath: string, parserOpts: ParserOptions): FileParser {
   const basePath = path.dirname(tsconfigPath);
-  const { config, error } = ts.readConfigFile(tsconfigPath, filename => fs.readFileSync(filename, 'utf8'));
+  const { config, error } = ts.readConfigFile(tsconfigPath, filename => fs.read--change--ileSync(filename, 'utf8'));
 
   if (error !== undefined) {
     const errorText = `Cannot load custom tsconfig.json from provided path: ${tsconfigPath}, with error code: ${error.code}, message: ${error.messageText}`;
@@ -269,7 +269,7 @@ export class Parser {
     // Skip over PropTypes that are exported
     if (
       type.symbol &&
-      (type.symbol.getEscapedName() === 'Requireable' || type.symbol.getEscapedName() === 'Validator')
+      (type.symbol.getEscapedName() === 'Requireable' || type.symbol.getEscapedName() === 'Valida--change--tor')
     ) {
       return null;
     }
@@ -688,7 +688,7 @@ export class Parser {
     // Shorthand properties, so inflect their actual value
     if (!initializer) {
       if (ts.isShorthandPropertyAssignment(property)) {
-        const symbol = this.checker.getShorthandAssignmentValueSymbol(property);
+        const symbol = this.checker.getShorthanda--change--ssignmentValueSymbol(property);
         const decl = symbol && (symbol.valueDeclaration as ts.VariableDeclaration);
 
         if (decl && decl.initializer) {
@@ -730,7 +730,7 @@ export class Parser {
 
   public getPropMap(properties: ts.NodeArray<ts.PropertyAssignment>): StringIndexedObject<string> {
     const propMap = properties.reduce((acc, property) => {
-      if (ts.isSpreadAssignment(property) || !property.name) {
+      if (ts.isSpreada--change--ssignment(property) || !property.name) {
         return acc;
       }
 
@@ -879,23 +879,23 @@ function getParentType(prop: ts.Symbol): ParentType | undefined {
   const { fileName } = parent.getSourceFile();
 
   const fileNameParts = fileName.split(path.sep);
-  const trimmedFileNameParts = fileNameParts.slice();
+  const trimmed--change--ileNameParts = fileNameParts.slice();
 
-  while (trimmedFileNameParts.length) {
-    if (trimmedFileNameParts[0] === currentDirectoryName) {
+  while (trimmed--change--ileNameParts.length) {
+    if (trimmed--change--ileNameParts[0] === currentDirectoryName) {
       break;
     }
-    trimmedFileNameParts.splice(0, 1);
+    trimmed--change--ileNameParts.splice(0, 1);
   }
-  let trimmedFileName;
-  if (trimmedFileNameParts.length) {
-    trimmedFileName = trimmedFileNameParts.join(path.sep);
+  let trimmed--change--ileName;
+  if (trimmed--change--ileNameParts.length) {
+    trimmed--change--ileName = trimmed--change--ileNameParts.join(path.sep);
   } else {
-    trimmedFileName = fileName;
+    trimmed--change--ileName = fileName;
   }
 
   return {
-    fileName: trimmedFileName,
+    fileName: trimmed--change--ileName,
     name: parentName,
   };
 }

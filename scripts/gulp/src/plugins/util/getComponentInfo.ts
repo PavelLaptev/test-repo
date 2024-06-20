@@ -1,6 +1,6 @@
 import * as Babel from '@babel/core';
 import * as t from '@babel/types';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 import path from 'path';
 import fs from 'fs';
 
@@ -10,7 +10,7 @@ import parseDefaultPropsValues from './parseDefaultPropsValues';
 import parseDocblock from './parseDocblock';
 import parseType from './parseType';
 import getShorthandInfo from './getShorthandInfo';
-import { getProgram, loadFiles } from './tsLanguageService';
+import { getProgram, load--change--iles } from './tsLanguageService';
 import { Program } from 'typescript';
 
 export type GetComponentInfoOptions = {
@@ -54,7 +54,7 @@ export default function getComponentInfo(options: GetComponentInfoOptions): Comp
   // "element" for "src/elements/Button/Button.js"
   const componentType = path.basename(path.dirname(dir)).replace(/s$/, '') as ComponentInfo['type'];
 
-  loadFiles([filePath]);
+  load--change--iles([filePath]);
 
   const components = docgen.parseWithProgramProvider(absPath, {}, {}, () => getProgram(tsconfigPath) as Program);
 
@@ -71,7 +71,7 @@ export default function getComponentInfo(options: GetComponentInfoOptions): Comp
   }
 
   const info: docgen.ComponentDoc = components[0];
-  const componentAst = Babel.parse(fs.readFileSync(absPath).toString(), {
+  const componentAst = Babel.parse(fs.read--change--ileSync(absPath).toString(), {
     configFile: false,
     presets: [['@babel/preset-typescript', { allExtensions: true, isTSX: true }]],
   }) as t.File;

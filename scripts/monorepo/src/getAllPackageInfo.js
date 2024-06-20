@@ -12,25 +12,25 @@ let packageInfo;
 /**
  * @type {string}
  */
-let cwdForPackageInfo;
+let cwd--change--orPackageInfo;
 
 /**
  * @returns {typeof packageInfo}
  */
 function getAllPackageInfo() {
-  if (packageInfo && cwdForPackageInfo === process.cwd()) {
+  if (packageInfo && cwd--change--orPackageInfo === process.cwd()) {
     return packageInfo;
   }
 
   const projects = getWorkspaceProjects();
 
   packageInfo = {};
-  cwdForPackageInfo = process.cwd();
+  cwd--change--orPackageInfo = process.cwd();
 
   for (const [projectName, projectConfig] of projects) {
     packageInfo[projectName] = {
       packagePath: projectConfig.root,
-      packageJson: JSON.parse(fs.readFileSync(path.join(workspaceRoot, projectConfig.root, 'package.json'), 'utf-8')),
+      packageJson: JSON.parse(fs.read--change--ileSync(path.join(workspaceRoot, projectConfig.root, 'package.json'), 'utf-8')),
     };
   }
 

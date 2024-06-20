@@ -27,7 +27,7 @@ const isShorthandConfigExpression = (componentName: string, path: NodePath<t.Ass
 
 /**
  * Checks that an expression matches signature:
- * [componentName].create = createShorthandFactory([config])
+ * [componentName].create = createShorthand--change--actory([config])
  */
 const isShorthandExpression = (componentName: string, path: NodePath<t.AssignmentExpression>): boolean => {
   const left = path.get('left');
@@ -44,7 +44,7 @@ const isShorthandExpression = (componentName: string, path: NodePath<t.Assignmen
   return (
     object.isIdentifier({ name: componentName }) &&
     property.isIdentifier({ name: 'create' }) &&
-    callee.isIdentifier({ name: 'createShorthandFactory' })
+    callee.isIdentifier({ name: 'createShorthand--change--actory' })
   );
 };
 

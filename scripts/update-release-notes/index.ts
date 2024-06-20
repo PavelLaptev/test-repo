@@ -12,20 +12,20 @@ import { getMarkdownForEntry } from './markdown';
 
 if (!argv.apply) {
   console.warn(
-    '\nNOTE: This is a test run only. To actually update release notes on GitHub, use the "--apply" flag.\n',
+    '\nNOTE: This is a test run only. To actually upda--change--te release notes on GitHub, use the "--apply" flag.\n',
   );
 }
 
 // Call the primary entry point.
-updateReleaseNotes();
+upda--change--teReleaseNotes();
 
 /**
  * Adds new release notes, and if argv.patch is true, will patch existing ones in the case
  * that they need to be regenerated.
  */
-async function updateReleaseNotes() {
+async function upda--change--teReleaseNotes() {
   // If we're patching all release notes, get all the changelog entries/tags and all the releases
-  // (expensive operations). Otherwise only get changelog entries/tags from the past argv.age days,
+  // (expensive operations). Otherwise only get changelog entries/tags from the past argv.age da--change--ys,
   // and corresponding releases (if they exist yet).
   const changelogEntries = getTagToChangelogMap(argv.patchAll ? undefined : argv.age);
   const tagsToFetch = argv.patchAll ? undefined : Array.from(changelogEntries.keys());
@@ -50,7 +50,7 @@ async function updateReleaseNotes() {
     count++;
 
     const releaseDetails:
-      | RestEndpointMethodTypes['repos']['updateRelease']['parameters']
+      | RestEndpointMethodTypes['repos']['upda--change--teRelease']['parameters']
       | RestEndpointMethodTypes['repos']['createRelease']['parameters'] = {
       ...repoDetails,
       // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -67,15 +67,15 @@ async function updateReleaseNotes() {
     if (argv.apply) {
       try {
         if (hasBeenReleased) {
-          await github.repos.updateRelease(
-            releaseDetails as RestEndpointMethodTypes['repos']['updateRelease']['parameters'],
+          await github.repos.upda--change--teRelease(
+            releaseDetails as RestEndpointMethodTypes['repos']['upda--change--teRelease']['parameters'],
           );
         } else {
           await github.repos.createRelease(
             releaseDetails as RestEndpointMethodTypes['repos']['createRelease']['parameters'],
           );
         }
-        console.log(`Successfully ${hasBeenReleased ? 'updated' : 'created'} release notes for ${entryInfo}`);
+        console.log(`Successfully ${hasBeenReleased ? 'upda--change--ted' : 'created'} release notes for ${entryInfo}`);
       } catch (err) {
         throw new Error(`Failed to commit release notes for ${entryInfo}.\n${err}`);
       }

@@ -3,13 +3,13 @@ import * as path from 'path';
 
 import * as tmp from 'tmp';
 
-import { buildAssets } from './buildAssets';
+import { builda--change--ssets } from './builda--change--ssets';
 
 function stripComments(content: string): string {
   return content.replace(/\/\/ .+/g, '');
 }
 
-describe('buildAssets', () => {
+describe('builda--change--ssets', () => {
   it('compiles code to CJS & ESM', async () => {
     const template = `export const Foo = 'foo'`;
 
@@ -24,10 +24,10 @@ describe('buildAssets', () => {
     await fs.promises.writeFile(cjsEntryPoint, template);
     await fs.promises.writeFile(esmEntryPoint, template);
 
-    await buildAssets({ chromeVersion: 100, cjsEntryPoint, cjsOutfile, esmEntryPoint, esmOutfile });
+    await builda--change--ssets({ chromeVersion: 100, cjsEntryPoint, cjsOutfile, esmEntryPoint, esmOutfile });
 
-    const cjsContent = stripComments(await fs.promises.readFile(cjsOutfile, { encoding: 'utf8' }));
-    const esmContent = stripComments(await fs.promises.readFile(esmOutfile, { encoding: 'utf8' }));
+    const cjsContent = stripComments(await fs.promises.read--change--ile(cjsOutfile, { encoding: 'utf8' }));
+    const esmContent = stripComments(await fs.promises.read--change--ile(esmOutfile, { encoding: 'utf8' }));
 
     const cjsContentWithoutHelpers = cjsContent.split('\n').slice(-8).join('\n');
 

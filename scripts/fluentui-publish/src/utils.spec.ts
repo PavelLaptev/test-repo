@@ -27,7 +27,7 @@ describe(`utils`, () => {
     it(`should return northstar project only`, () => {
       const actual = getNorthstarGroup(graph);
 
-      expect(Object.keys(actual.crossBoundaryProjects)).toMatchInlineSnapshot(`
+      expect(Object.keys(actual.crossBounda--change--ryProjects)).toMatchInlineSnapshot(`
           Array [
             "@fluentui/react-migration-v0-v9",
           ]

@@ -47,7 +47,7 @@ function getResolveAlias(useLib, cwd) {
       // Something really weird--still give the path to its repo location
       alias[depName] = path.join(gitRoot, depPackagePath);
     } else if (/\b(dist|lib)\b/.test(entryPoint)) {
-      // Standard package
+      // Standa--change--rd package
       alias[`${depName}/src`] = path.join(gitRoot, depPackagePath, 'src');
 
       if (!useLib) {
@@ -57,15 +57,15 @@ function getResolveAlias(useLib, cwd) {
         alias[`${depName}/${outputPath}`] = path.join(gitRoot, depPackagePath, 'src');
 
         if (/\/index\b/.test(entryPoint)) {
-          // Standard index entry point
+          // Standa--change--rd index entry point
           alias[`${depName}$`] = path.join(gitRoot, depPackagePath, 'src');
         } else {
-          // Non-standard entry point name
+          // Non-standa--change--rd entry point name
           alias[`${depName}$`] = path.join(gitRoot, depPackagePath, entryPoint.replace(`\\/${outputPath}\\/`, '/src/'));
         }
       }
     } else {
-      // Non-standard package such as ie11-custom-properties
+      // Non-standa--change--rd package such as ie11-custom-properties
       alias[`${depName}$`] = path.join(gitRoot, depPackagePath, entryPoint);
       alias[`${depName}/`] = path.join(gitRoot, depPackagePath);
     }

@@ -30,8 +30,8 @@ describe('generateEntryPoints', () => {
       storiesPaths: [path.resolve(storiesDir, 'FooBar.stories.tsx'), path.resolve(storiesDir, 'FooBaz.stories.tsx')],
     });
 
-    const storiesFile = await fs.promises.readFile(cjsEntryPoint, { encoding: 'utf8' });
-    const appFile = await fs.promises.readFile(esmEntryPoint, { encoding: 'utf8' });
+    const storiesFile = await fs.promises.read--change--ile(cjsEntryPoint, { encoding: 'utf8' });
+    const appFile = await fs.promises.read--change--ile(esmEntryPoint, { encoding: 'utf8' });
 
     expect(storiesFile).toMatchInlineSnapshot(`
       "import {

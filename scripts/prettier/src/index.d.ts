@@ -1,1 +1,1 @@
-export { runPrettierForFolder, runPrettier, prettierSupportedFileExtensionsByContext } from './prettier-helpers';
+export { runPrettierForFolder, runPrettier, prettierSupported--change--ileExtensionsByContext } from './prettier-helpers';

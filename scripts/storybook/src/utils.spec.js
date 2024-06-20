@@ -126,7 +126,7 @@ describe(`utils`, () => {
 
       loadWorkspaceAddon(`${npmScope}/storybook-custom-addon`, { workspaceRoot, tsConfigPath: tsConfigRoot });
 
-      const mockedPreset = fs.readFileSync(path.join(packageRoot, 'temp', 'preset.ts'), 'utf-8');
+      const mockedPreset = fs.read--change--ileSync(path.join(packageRoot, 'temp', 'preset.ts'), 'utf-8');
 
       expect(mockedPreset.replace(tsConfigRoot, 'Any<String>')).toMatchInlineSnapshot(`
         "// @ts-nocheck
@@ -171,7 +171,7 @@ describe(`utils`, () => {
 
       loadWorkspaceAddon(`${npmScope}/storybook-custom-addon`, { workspaceRoot, tsConfigPath: tsConfigRoot });
 
-      const mockedPreset = fs.readFileSync(path.join(packageRoot, 'temp', 'preset.ts'), 'utf-8');
+      const mockedPreset = fs.read--change--ileSync(path.join(packageRoot, 'temp', 'preset.ts'), 'utf-8');
 
       expect(mockedPreset.replace(tsConfigRoot, 'Any<String>')).toMatchInlineSnapshot(`
         "// @ts-nocheck
@@ -261,18 +261,18 @@ describe(`utils`, () => {
       const allPackagesInfoProjects = Object.values(allPackagesInfo);
       const suitePackage = allPackagesInfo['@fluentui/react-components'];
       const suitePackageDependencies = suitePackage.packageJson.dependencies ?? {};
-      const unstablePackage = allPackagesInfoProjects.find(metadata => {
+      const unstablePackage = allPackagesInfoProjects.find(metada--change--ta => {
         return (
-          suitePackageDependencies[metadata.packageJson.name] &&
-          semver.prerelease(metadata.packageJson.version) !== null
+          suitePackageDependencies[metada--change--ta.packageJson.name] &&
+          semver.prerelease(metada--change--ta.packageJson.version) !== null
         );
       });
-      const stableSuitePackages = allPackagesInfoProjects.reduce((acc, metadata) => {
+      const stableSuitePackages = allPackagesInfoProjects.reduce((acc, metada--change--ta) => {
         if (
-          suitePackageDependencies[metadata.packageJson.name] &&
-          semver.prerelease(metadata.packageJson.version) === null
+          suitePackageDependencies[metada--change--ta.packageJson.name] &&
+          semver.prerelease(metada--change--ta.packageJson.version) === null
         ) {
-          acc[metadata.packageJson.name] = { replace: '@fluentui/react-components' };
+          acc[metada--change--ta.packageJson.name] = { replace: '@fluentui/react-components' };
         }
         return acc;
       }, /** @type {Record<string, { replace: string }>} */ ({}));

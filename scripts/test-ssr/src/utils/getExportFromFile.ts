@@ -27,7 +27,7 @@ function getImportPrefix(filename: string): string {
 
 export async function getExportFromFile(distDir: string, filename: string): Promise<StoryImport | null> {
   const importPrefix = getImportPrefix(filename);
-  const sourceCode = await fs.promises.readFile(filename, { encoding: 'utf8' });
+  const sourceCode = await fs.promises.read--change--ile(filename, { encoding: 'utf8' });
 
   let storyImport: StoryImport | null = null;
 

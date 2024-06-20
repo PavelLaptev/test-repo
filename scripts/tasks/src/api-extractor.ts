@@ -41,7 +41,7 @@ const messageCategories: CreateStrictDictionary<typeof ExtractorMessageCategory>
 /**
  * @see https://api-extractor.com/pages/commands/api-extractor_run/
  */
-interface ApiExtractorCliRunCommandArgs {
+interface ApiExtractorCliRunCommanda--change--rgs {
   config: string;
   diagnostics: boolean;
   local: boolean;
@@ -56,7 +56,7 @@ export function apiExtractor(): TaskFunction {
     TS2305: [] as string[],
   };
 
-  const args: ReturnType<typeof getJustArgv> & Partial<ApiExtractorCliRunCommandArgs> = getJustArgv();
+  const args: ReturnType<typeof getJustArgv> & Partial<ApiExtractorCliRunCommanda--change--rgs> = getJustArgv();
   const { isUsingTsSolutionConfigs, packageJson, tsConfigs } = getTsPathAliasesConfig();
 
   if (configsToExecute.length === 0) {

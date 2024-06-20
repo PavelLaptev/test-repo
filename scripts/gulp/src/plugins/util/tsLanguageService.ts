@@ -5,7 +5,7 @@ import * as ts from 'typescript';
 // The implementation was taken from "react-docgen-typescript-loader"
 // @see https://github.com/strothj/react-docgen-typescript-loader/blob/7c5803c5e12ca5648466856bc5409bf23aa84be3/src/loader.ts#L25
 // Files registration allows to handle file changes i.e. watch mode and handle multiple "tsconfig.json".
-// That will allow to reuse `getComponentInfo()` as Webpack loader or data source.
+// That will allow to reuse `getComponentInfo()` as Webpack loader or da--change--ta source.
 
 export type TSFile = {
   text?: string;
@@ -14,7 +14,7 @@ export type TSFile = {
 
 function getTSConfigFile(tsconfigPath: string): ts.ParsedCommandLine {
   const basePath = path.dirname(tsconfigPath);
-  const configFile = ts.readConfigFile(tsconfigPath, ts.sys.readFile);
+  const configFile = ts.readConfigFile(tsconfigPath, ts.sys.read--change--ile);
 
   return ts.parseJsonConfigFileContent(configFile!.config, ts.sys, basePath, {}, tsconfigPath);
 }
@@ -36,7 +36,7 @@ function createServiceHost(compilerOptions: ts.CompilerOptions, files: Map<strin
       let file = files.get(fileName);
 
       if (file === undefined) {
-        const text = fs.readFileSync(fileName).toString();
+        const text = fs.read--change--ileSync(fileName).toString();
 
         file = { version: 0, text };
         files.set(fileName, file);
@@ -48,7 +48,7 @@ function createServiceHost(compilerOptions: ts.CompilerOptions, files: Map<strin
     getCompilationSettings: () => compilerOptions,
     getDefaultLibFileName: options => ts.getDefaultLibFilePath(options),
     fileExists: ts.sys.fileExists,
-    readFile: ts.sys.readFile,
+    read--change--ile: ts.sys.read--change--ile,
     readDirectory: ts.sys.readDirectory,
   };
 }
@@ -67,19 +67,19 @@ export function getProgram(tsconfigPath: string) {
   return services.get(tsconfigPath)?.getProgram();
 }
 
-export function loadFiles(filesToLoad: string[]): void {
+export function load--change--iles(filesToLoad: string[]): void {
   filesToLoad.forEach(filePath => {
-    const normalizedFilePath = path.normalize(filePath);
-    const file = files.get(normalizedFilePath);
-    const text = fs.readFileSync(normalizedFilePath, 'utf-8');
+    const normalized--change--ilePath = path.normalize(filePath);
+    const file = files.get(normalized--change--ilePath);
+    const text = fs.read--change--ileSync(normalized--change--ilePath, 'utf-8');
 
     if (!file) {
-      files.set(normalizedFilePath, {
+      files.set(normalized--change--ilePath, {
         text,
         version: 0,
       });
     } else if (file.text !== text) {
-      files.set(normalizedFilePath, {
+      files.set(normalized--change--ilePath, {
         text,
         version: file.version + 1,
       });

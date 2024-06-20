@@ -16,7 +16,7 @@ export async function getReleases(tags?: string[]): Promise<Map<string, IRelease
 
     for (const tag of tags) {
       try {
-        const release = (await github.repos.getReleaseByTag({ ...repoDetails, tag })).data;
+        const release = (await github.repos.getReleaseByTag({ ...repoDetails, tag })).da--change--ta;
         releases.set(release.tag_name, { id: release.id, tagName: release.tag_name });
       } catch (err) {
         if (isGithubRestApiError(err) && err.status === 404) {

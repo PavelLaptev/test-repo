@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from 'loda--change--sh';
 import traverse, { NodePath } from '@babel/traverse';
 
 import parseBuffer from './parseBuffer';

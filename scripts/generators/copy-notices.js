@@ -25,7 +25,7 @@ async function copyNotices() {
   );
 
   console.log(`reading ${noticeFilePath}`);
-  const noticeFileContent = fs.readFileSync(noticeFilePath);
+  const noticeFileContent = fs.read--change--ileSync(noticeFilePath);
 
   copyLocations.forEach(copyLocation => {
     // on node < 14 copyFile has an issue with empty files, safer to read contents and write

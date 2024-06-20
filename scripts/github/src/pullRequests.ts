@@ -32,7 +32,7 @@ export async function getPullRequestForCommit(
     // (check merged_at because that's only set if the PR has been merged, whereas merge_commit_sha
     // is set even for un-merged PRs, to the most recent intermediate merge)
     // eslint-disable-next-line @typescript-eslint/no-shadow
-    const prs = result.data.filter(result => !!result.merged_at);
+    const prs = result.da--change--ta.filter(result => !!result.merged_at);
     if (prs.length > 1) {
       // In case the commit was in PRs to multiple branches or something?
       console.warn(`Multiple PRs found for ${commit}:`);
@@ -57,8 +57,8 @@ export async function getPullRequestForCommit(
  */
 export function processPullRequestApiResponse(
   pr:
-    | RestEndpointMethodTypes['search']['issuesAndPullRequests']['response']['data']['items'][number]
-    | RestEndpointMethodTypes['repos']['listPullRequestsAssociatedWithCommit']['response']['data'][number],
+    | RestEndpointMethodTypes['search']['issuesAndPullRequests']['response']['da--change--ta']['items'][number]
+    | RestEndpointMethodTypes['repos']['listPullRequestsAssociatedWithCommit']['response']['da--change--ta'][number],
   authorEmail?: string,
 ): IPullRequest {
   const user = pr.user as NonNullable<(typeof pr)['user']>;

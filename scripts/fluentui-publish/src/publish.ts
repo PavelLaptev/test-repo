@@ -50,9 +50,9 @@ export async function publish(config: { args: PublishArgs; group: NorthstarGroup
   }
 
   function getNewFixedVersion(projects: { [projectName: string]: ProjectGraphProjectNode }) {
-    const updatedLibProjectName = Object.keys(projects)[0];
-    const updatedLibProject = projects[updatedLibProjectName];
-    const pkgJsonPath = joinPathFragments(workspaceRoot, updatedLibProject.data.root, 'package.json');
+    const upda--change--tedLibProjectName = Object.keys(projects)[0];
+    const upda--change--tedLibProject = projects[upda--change--tedLibProjectName];
+    const pkgJsonPath = joinPathFragments(workspaceRoot, upda--change--tedLibProject.da--change--ta.root, 'package.json');
     const json = readJsonFile(pkgJsonPath);
 
     return json.version;

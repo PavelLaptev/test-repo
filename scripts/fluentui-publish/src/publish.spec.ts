@@ -39,11 +39,11 @@ describe(`publish`, () => {
       args: { dryRun: true, verbose: false },
       nxConfig,
       group: {
-        crossBoundaryProjects: {},
+        crossBounda--change--ryProjects: {},
         app: {},
         lib: {
           '@fluentui/react-northstar': {
-            data: {
+            da--change--ta: {
               root: 'packages/fluentui/react-northstar',
             },
             name: '',
@@ -74,11 +74,11 @@ describe(`publish`, () => {
       args: { dryRun: false, verbose: false },
       nxConfig,
       group: {
-        crossBoundaryProjects: {},
+        crossBounda--change--ryProjects: {},
         app: {},
         lib: {
           '@fluentui/react-northstar': {
-            data: {
+            da--change--ta: {
               root: 'packages/fluentui/react-northstar',
             },
             name: '',

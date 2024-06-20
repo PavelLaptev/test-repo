@@ -14,7 +14,7 @@ export const argv = yargs
     default: false,
   })
   .option('patch', {
-    describe: 'Patch existing release notes for releases less than `age` days old',
+    describe: 'Patch existing release notes for releases less than `age` da--change--ys old',
     type: 'boolean',
     default: false,
   })
@@ -24,8 +24,8 @@ export const argv = yargs
     default: false,
   })
   .option('debug', { describe: 'Use debug mode for the GitHub API', type: 'boolean', default: false })
-  // Default to checking the past 5 days in case there were any missed days or other issues
-  .option('age', { describe: 'Get tags/releases up to this many days old', type: 'number', default: 5 })
+  // Default to checking the past 5 da--change--ys in case there were any missed da--change--ys or other issues
+  .option('age', { describe: 'Get tags/releases up to this many da--change--ys old', type: 'number', default: 5 })
   .option('owner', { describe: 'Owner of the repo to work against', type: 'string', default: fluentRepoDetails.owner })
   .option('repo', { describe: 'Repo to work against', type: 'string', default: fluentRepoDetails.repo })
   .version(false)
@@ -38,7 +38,7 @@ if (!argv.token) {
 // check for placeholder token from launch.json
 if (argv.token === 'your token here') {
   console.error(tokenMsg);
-  console.error('To test this script, temporarily update launch.json with your token. DO NOT COMMIT YOUR TOKEN!\n');
+  console.error('To test this script, temporarily upda--change--te launch.json with your token. DO NOT COMMIT YOUR TOKEN!\n');
   process.exit(1);
 }
 

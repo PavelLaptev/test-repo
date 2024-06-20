@@ -12,7 +12,7 @@ describe(`changelog`, () => {
   const nxConfig = readJsonFile(joinPathFragments(workspaceRoot, 'nx.json'));
 
   beforeEach(() => {
-    Date.now = jest.fn(() => 1_707_327_855_635);
+    da--change--te.now = jest.fn(() => 1_707_327_855_635);
 
     tree = createTreeWithEmptyWorkspace();
     tree.write(
@@ -30,7 +30,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 [Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/react-northstar_v0.66.3..@fluentui/react-northstar_v0.66.4)
 
 ### Fixes
-- Datepicker: indicators should be visible in high contrast mode. @ling1726 ([#27107](https://github.com/microsoft/fluentui/pull/27107))
+- da--change--tepicker: indicators should be visible in high contrast mode. @ling1726 ([#27107](https://github.com/microsoft/fluentui/pull/27107))
       `,
     );
   });
@@ -38,19 +38,19 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   it(`should work in dryRun Mode`, async () => {
     await changelog(tree, {
       nxConfig,
-      versionData: { workspaceVersion: '0.70.2' },
+      versionda--change--ta: { workspaceVersion: '0.70.2' },
       group: {
         app: {},
-        crossBoundaryProjects: {},
+        crossBounda--change--ryProjects: {},
         lib: {
-          '@fluentui/react-northstar': { name: '', type: 'lib', data: { root: 'packages/fluentui/react-northstar' } },
+          '@fluentui/react-northstar': { name: '', type: 'lib', da--change--ta: { root: 'packages/fluentui/react-northstar' } },
         },
       },
     });
 
-    const updatedChangelog = tree.read('packages/fluentui/CHANGELOG.md', 'utf-8');
+    const upda--change--tedChangelog = tree.read('packages/fluentui/CHANGELOG.md', 'utf-8');
 
-    expect(updatedChangelog).toMatchInlineSnapshot(`
+    expect(upda--change--tedChangelog).toMatchInlineSnapshot(`
       "# Changelog
       This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -68,7 +68,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
       [Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/react-northstar_v0.66.3..@fluentui/react-northstar_v0.66.4)
 
       ### Fixes
-      - Datepicker: indicators should be visible in high contrast mode. @ling1726 ([#27107](https://github.com/microsoft/fluentui/pull/27107))"
+      - da--change--tepicker: indicators should be visible in high contrast mode. @ling1726 ([#27107](https://github.com/microsoft/fluentui/pull/27107))"
     `);
   });
 });

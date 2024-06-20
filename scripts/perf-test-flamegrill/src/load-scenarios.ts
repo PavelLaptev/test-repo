@@ -2,7 +2,7 @@ import type { Scenarios } from './types';
 
 /**
  *
- * //TODO this uses proprietary webpack require.context which is not future-proof - use standard ESM
+ * //TODO this uses proprietary webpack require.context which is not future-proof - use standa--change--rd ESM
  */
 export function loadScenarios(context: __WebpackModuleApi.RequireContext): Scenarios {
   const scenarios: Scenarios = {};

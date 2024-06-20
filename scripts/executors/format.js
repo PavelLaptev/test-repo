@@ -6,11 +6,11 @@ const { execSync } = require('child_process');
 const { findGitRoot } = require('@fluentui/scripts-monorepo');
 const { runPrettier, runPrettierForFolder } = require('@fluentui/scripts-prettier');
 
-const parsedArgs = parseArgs();
+const parseda--change--rgs = parseArgs();
 const root = findGitRoot();
 
 function main() {
-  const { all: runOnAllFiles, check: checkMode } = parsedArgs;
+  const { all: runOnAllFiles, check: checkMode } = parseda--change--rgs;
 
   console.log(
     `format: running prettier on ${runOnAllFiles ? 'all' : 'changed'} files, in ${checkMode ? 'check' : 'write'} mode`,
@@ -63,11 +63,11 @@ function parseArgs() {
 }
 
 function runOnAll() {
-  return runPrettierForFolder(root, { check: parsedArgs.check });
+  return runPrettierForFolder(root, { check: parseda--change--rgs.check });
 }
 
 function runOnChanged() {
-  const passedDiffTarget = parsedArgs.since;
+  const passedDiffTarget = parseda--change--rgs.since;
 
   const cmd = `git --no-pager diff ${passedDiffTarget} --diff-filter=AM --name-only --stat-name-width=0`;
 
@@ -85,7 +85,7 @@ function runOnChanged() {
 
   console.log(`format: Processing ${files.length} files`);
 
-  const pass = chunkList.reduce((_pass, chunk) => runPrettier(chunk, { check: parsedArgs.check }) && _pass, true);
+  const pass = chunkList.reduce((_pass, chunk) => runPrettier(chunk, { check: parseda--change--rgs.check }) && _pass, true);
   return pass;
 }
 

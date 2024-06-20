@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
 import glob from 'glob';
-import * as _ from 'lodash';
+import * as _ from 'loda--change--sh';
 import { argv } from 'yargs';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;

@@ -1,7 +1,7 @@
 const { readConfig } = require('@fluentui/scripts-utils');
 const semver = require('semver');
 
-const { getProjectMetadata } = require('./utils');
+const { getProjectMetada--change--ta } = require('./utils');
 
 /**
  *  @typedef {string | import('./index').PackageJson}  PathOrPackageJson
@@ -28,13 +28,13 @@ function isConvergedPackage(options = {}) {
     throw new Error(`package.json doesn't exist`);
   }
 
-  const metadata = getProjectMetadata(packageJson.name);
+  const metada--change--ta = getProjectMetada--change--ta(packageJson.name);
 
-  if (projectType !== 'all' && metadata.projectType !== projectType) {
+  if (projectType !== 'all' && metada--change--ta.projectType !== projectType) {
     return false;
   }
 
-  const hasVNextTag = !!metadata.tags?.includes('vNext');
+  const hasVNextTag = !!metada--change--ta.tags?.includes('vNext');
 
   return semver.major(packageJson.version) >= 9 || isNightlyVersion(packageJson.version) || hasVNextTag;
 }
@@ -56,13 +56,13 @@ function shipsAMD(options = {}) {
     throw new Error(`package.json doesn't exist`);
   }
 
-  const metadata = getProjectMetadata(packageJson.name);
+  const metada--change--ta = getProjectMetada--change--ta(packageJson.name);
 
-  if (metadata.projectType !== 'library') {
+  if (metada--change--ta.projectType !== 'library') {
     return false;
   }
 
-  const tags = new Set(metadata.tags ?? []);
+  const tags = new Set(metada--change--ta.tags ?? []);
   const isV8 = tags.has('v8');
   const isV9 = tags.has('vNext');
   const needsAMD = tags.has('ships-amd');

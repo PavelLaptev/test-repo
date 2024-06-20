@@ -14,7 +14,7 @@ tmp.setGracefulCleanup();
 
 describe(`generate-version-files`, () => {
   function getFileContents(filePath: string) {
-    return fs.readFileSync(filePath, 'utf-8');
+    return fs.read--change--ileSync(filePath, 'utf-8');
   }
   function setup() {
     const { name: rootDir } = tmp.dirSync({ prefix: 'generate-version-files', unsafeCleanup: true });
@@ -61,12 +61,12 @@ describe(`generate-version-files`, () => {
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
-    jest.spyOn(Date.prototype, 'getTime').mockImplementation(() => 1482363367071);
+    jest.spyOn(da--change--te.prototype, 'getTime').mockImplementation(() => 1482363367071);
 
     return { rootDir, packages, spawnSyncMock, logSpy };
   }
 
-  it(`should bump -> update versions.ts -> revert bump`, () => {
+  it(`should bump -> upda--change--te versions.ts -> revert bump`, () => {
     const { rootDir, /* packages, */ logSpy, spawnSyncMock } = setup();
     generateVersionFiles({
       args: {},
@@ -156,19 +156,19 @@ describe(`generate-version-files`, () => {
 
     expect(getFileContents(packages[0].pkgVersionFilePath)).toMatchInlineSnapshot(`
       "// Do not modify this file; it is generated as part of publish.
-      // The checked in version is a placeholder only and will not be updated.
+      // The checked in version is a placeholder only and will not be upda--change--ted.
       import { setVersion } from '@fluentui/set-version';
       setVersion('@proj/react-one', '1.0.0');"
     `);
     expect(getFileContents(packages[1].pkgVersionFilePath)).toMatchInlineSnapshot(`
       "// Do not modify this file; it is generated as part of publish.
-      // The checked in version is a placeholder only and will not be updated.
+      // The checked in version is a placeholder only and will not be upda--change--ted.
       import { setVersion } from '@fluentui/set-version';
       setVersion('@proj/react-two', '1.1.0');"
     `);
   });
 
-  it(`should not update versions.ts if its contents is identical`, () => {
+  it(`should not upda--change--te versions.ts if its contents is identical`, () => {
     const { rootDir, packages, logSpy, spawnSyncMock } = setup();
 
     // modify version.ts
@@ -178,7 +178,7 @@ describe(`generate-version-files`, () => {
     fs.writeFileSync(firstPackage.pkgVersionFilePath, pkgVersionsFileContentModified, 'utf-8');
 
     generateVersionFiles({
-      args: { generateOnly: true, forceUpdate: true },
+      args: { generateOnly: true, forceUpda--change--te: true },
       bumpCmd: ['bin/node', 'node_modules/bin/beachball', 'bump'],
       gitRoot: rootDir,
     });
@@ -189,7 +189,7 @@ describe(`generate-version-files`, () => {
     );
     expect(getFileContents(packages[1].pkgVersionFilePath)).toMatchInlineSnapshot(`
       "// Do not modify this file; it is generated as part of publish.
-      // The checked in version is a placeholder only and will not be updated.
+      // The checked in version is a placeholder only and will not be upda--change--ted.
       import { setVersion } from '@fluentui/set-version';
       setVersion('@proj/react-two', '1.1.0');"
     `);

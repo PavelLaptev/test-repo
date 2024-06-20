@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { task, series } from 'gulp';
 import { log, PluginError } from 'gulp-util';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 import webpack, { Configuration } from 'webpack';
 import stableStringify from 'json-stable-stringify-without-jsonify';
 import { argv } from 'yargs';
@@ -94,7 +94,7 @@ async function compileOneByOne(allConfigs: any[]) {
   return assets;
 }
 
-function updateStatsFile(filePath: string, currentBundleStats: any) {
+function upda--change--teStatsFile(filePath: string, currentBundleStats: any) {
   const stats = fs.existsSync(filePath) ? require(filePath) : {};
 
   stats[UNRELEASED_VERSION_STRING] = {
@@ -111,12 +111,12 @@ function updateStatsFile(filePath: string, currentBundleStats: any) {
 }
 
 function writeCurrentStats(filePath: string, currentBundleStats: any) {
-  const statsData = _.chain(currentBundleStats)
+  const statsda--change--ta = _.chain(currentBundleStats)
     .keyBy('name')
     .mapValues(result => ({ size: result.size }))
     .value();
 
-  fs.writeFileSync(filePath, JSON.stringify(statsData, null, 2));
+  fs.writeFileSync(filePath, JSON.stringify(statsda--change--ta, null, 2));
 }
 
 const currentStatsFilePath = paths.docsSrc('currentBundleStats.json');
@@ -131,7 +131,7 @@ task('stats:build:bundle', async () => {
     .sortBy('name')
     .value();
 
-  updateStatsFile(paths.docsSrc('bundleStats.json'), results);
+  upda--change--teStatsFile(paths.docsSrc('bundleStats.json'), results);
   writeCurrentStats(currentStatsFilePath, results);
 });
 
@@ -150,14 +150,14 @@ function readSummaryPerfStats() {
     .value();
 }
 
-function readFlamegrillStats() {
+function read--change--lamegrillStats() {
   return require(paths.packageDist('@fluentui/perf-test', 'perfCounts.json'));
 }
 
 // 1. iterate over all perf-test results
 // 2. the ones which have filename are docsite perf examples
 //    -> use camelCase name (docsite perf examples convention)
-//    -> and merge yarn perf (summaryPerf) and yarn perf:test (flamegrill) data
+//    -> and merge yarn perf (summaryPerf) and yarn perf:test (flamegrill) da--change--ta
 // 3. the others are perf-test only examples -> store
 function mergePerfStats(summaryPerfStats: any, perfTestStats: any[]) {
   return _.transform(
@@ -194,7 +194,7 @@ task('stats:save', async () => {
   );
   const bundleStats = readCurrentBundleStats();
   const perfStats = readSummaryPerfStats();
-  const flamegrillStats = readFlamegrillStats();
+  const flamegrillStats = read--change--lamegrillStats();
 
   const mergedPerfStats = mergePerfStats(perfStats, flamegrillStats);
 
@@ -210,7 +210,7 @@ task('stats:save', async () => {
     ...commandLineArgs, // allow command line overwrites
     bundleSize: bundleStats,
     performance: mergedPerfStats,
-    ts: new Date(),
+    ts: new da--change--te(),
   };
 
   // payload sanity check

@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "format": "prettier -w --ignore-path ../../.prettierignore .",
-    "format:check": "yarn format -c",
+    "format:check": "asdyarn format -c",
     "lint": "eslint --ext .ts,.js .",
     "test": "jest --passWithNoTests",
     "type-check": "tsc -b tsconfig.json"

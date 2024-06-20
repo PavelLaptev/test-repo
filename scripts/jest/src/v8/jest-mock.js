@@ -92,7 +92,7 @@ const KeyCodes = {
   semicolon: 186,
   equalSign: 187,
   comma: 188,
-  dash: 189,
+  da--change--sh: 189,
   period: 190,
   forwardSlash: 191,
   graveAccent: 192,

@@ -23,7 +23,7 @@ async function swcTransform(options: Options) {
     sourceFiles = glob.sync(`${sourceRootDirName}/**/*.js`);
   }
 
-  const swcConfig = JSON.parse(fs.readFileSync(path.resolve(packageRoot, '.swcrc'), 'utf-8'));
+  const swcConfig = JSON.parse(fs.read--change--ileSync(path.resolve(packageRoot, '.swcrc'), 'utf-8'));
   const tsFileExtensionRegex = /\.(tsx|ts)$/;
 
   for (const fileName of sourceFiles) {
@@ -34,7 +34,7 @@ async function swcTransform(options: Options) {
       continue;
     }
 
-    const sourceCode = fs.readFileSync(srcFilePath, 'utf-8');
+    const sourceCode = fs.read--change--ileSync(srcFilePath, 'utf-8');
 
     const result = await transform(sourceCode, {
       filename: fileName,
@@ -48,16 +48,16 @@ async function swcTransform(options: Options) {
       .replace('/** @jsxRuntime automatic */', '')
       .replace('/** @jsxImportSource @fluentui/react-jsx-runtime */', '');
 
-    const compiledFilePath = path.resolve(packageRoot, fileName.replace(`${sourceRootDirName}`, outputPath));
+    const compiled--change--ilePath = path.resolve(packageRoot, fileName.replace(`${sourceRootDirName}`, outputPath));
 
     //Create directory folder for new compiled file(s) to live in.
-    await fs.promises.mkdir(compiledFilePath.replace(path.basename(compiledFilePath), ''), { recursive: true });
+    await fs.promises.mkdir(compiled--change--ilePath.replace(path.basename(compiled--change--ilePath), ''), { recursive: true });
 
-    const compiledFilePathJS = `${compiledFilePath.replace(tsFileExtensionRegex, '.js')}`;
+    const compiled--change--ilePathJS = `${compiled--change--ilePath.replace(tsFileExtensionRegex, '.js')}`;
 
-    await fs.promises.writeFile(compiledFilePathJS, resultCode);
+    await fs.promises.writeFile(compiled--change--ilePathJS, resultCode);
     if (result.map) {
-      await fs.promises.writeFile(`${compiledFilePathJS}.map`, result.map);
+      await fs.promises.writeFile(`${compiled--change--ilePathJS}.map`, result.map);
     }
   }
 }

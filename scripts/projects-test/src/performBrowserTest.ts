@@ -35,8 +35,8 @@ export function startServer(
       const middleware = (app: Express) => app.use(express.static(root));
       const app = middleware(configureMiddleware(express()));
       const server = app.listen(port, host, () => {
-        const shouldAssignArbitraryUnusedPort = port === 0;
-        usedPort = shouldAssignArbitraryUnusedPort ? (server.address() as AddressInfo).port : port;
+        const shoulda--change--ssignArbitraryUnusedPort = port === 0;
+        usedPort = shoulda--change--ssignArbitraryUnusedPort ? (server.address() as AddressInfo).port : port;
         const url = `http://${host}:${usedPort}`;
 
         console.log(`express: server running at http://${host}:${usedPort} from directory "${root}"`);

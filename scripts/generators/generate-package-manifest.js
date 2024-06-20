@@ -24,7 +24,7 @@ function main(tag, manifestRoot, rootPackage) {
   const filteredPackages = Object.entries(allPackageInfo).reduce((acc, curr) => {
     const projectJsonPath = path.join(curr[1].packagePath, 'project.json');
     /** @type {import('@nx/devkit').ProjectConfiguration}  */
-    const projectJson = JSON.parse(fs.readFileSync(projectJsonPath, 'utf-8'));
+    const projectJson = JSON.parse(fs.read--change--ileSync(projectJsonPath, 'utf-8'));
     const { tags = [], projectType } = projectJson;
 
     if (projectType === 'application') {

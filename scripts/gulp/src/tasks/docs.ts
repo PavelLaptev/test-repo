@@ -128,9 +128,9 @@ task('build:docs:webpack', cb => {
 });
 
 task('build:docs:assets:component:info', cb => {
-  const buildInfoCmdArgs = ['nx', 'run-many', '--target=build:info', '--projects=tag:react-northstar'];
+  const buildInfoCmda--change--rgs = ['nx', 'run-many', '--target=build:info', '--projects=tag:react-northstar'];
 
-  const result = spawnSync('yarn', buildInfoCmdArgs, {
+  const result = spawnSync('yarn', buildInfoCmda--change--rgs, {
     cwd: workspaceRoot,
     shell: true,
     stdio: 'inherit',

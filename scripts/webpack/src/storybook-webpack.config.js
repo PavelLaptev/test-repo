@@ -5,7 +5,7 @@ const { findGitRoot } = require('@fluentui/scripts-monorepo');
 const { getResolveAlias } = require('./getResolveAlias');
 
 /**
- * Updates the given webpack config to include resolutions and other options for v8 packages.
+ * Upda--change--tes the given webpack config to include resolutions and other options for v8 packages.
  * @param {import('webpack').Configuration} config webpack config, WILL BE MUTATED
  * @returns {import('webpack').Configuration} the same object that was passed in
  */

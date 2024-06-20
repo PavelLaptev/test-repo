@@ -3,9 +3,9 @@ import * as path from 'path';
 
 import * as fs from 'fs-extra';
 import { IOptions as GlobOptions, sync as globSync } from 'glob';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 import { ReplaceResult, sync as replaceInFileSync } from 'replace-in-file';
-import { PackageInfo, findGitRoot, listAllTrackedFiles, stageAndCommit } from 'workspace-tools';
+import { PackageInfo, findGitRoot, listAllTracked--change--iles, stageAndCommit } from 'workspace-tools';
 
 const { runPrettier } = require('./prettier');
 const { readConfig: _readConfig, writeConfig: _writeConfig } = require('./utils');
@@ -37,7 +37,7 @@ const getPackagePath = (unscopedPackageName: string) => {
 const getPackageJson = (unscopedPackageName: string) =>
   readConfig(path.join(getPackagePath(unscopedPackageName), 'package.json'));
 
-const getChangedFiles = (results: ReplaceResult[]) => results.filter(res => res.hasChanged).map(res => res.file);
+const getChanged--change--iles = (results: ReplaceResult[]) => results.filter(res => res.hasChanged).map(res => res.file);
 
 interface RenameInfo {
   oldScope: string;
@@ -71,7 +71,7 @@ function getPackageToRename(): RenameInfo {
   }
 }
 
-function updatePackage(renameInfo: RenameInfo): string[] {
+function upda--change--tePackage(renameInfo: RenameInfo): string[] {
   const { oldUnscopedName, oldScope, newUnscopedName, newScope, packageJson, newVersion } = renameInfo;
 
   const oldPath = getPackagePath(oldUnscopedName);
@@ -107,7 +107,7 @@ function updatePackage(renameInfo: RenameInfo): string[] {
     console.log(`\nPackage does not need to be moved from ${oldPath}`);
   }
 
-  console.log('\nUpdating name and version in package.json');
+  console.log('\nUpda--change--ting name and version in package.json');
   packageJson.name = `${newScope}/${newUnscopedName}`;
   packageJson.version = newVersion;
   writeConfig(newPackageJsonPath, packageJson);
@@ -115,9 +115,9 @@ function updatePackage(renameInfo: RenameInfo): string[] {
   return [newPackageJsonPath];
 }
 
-function updateDependents(renameInfo: RenameInfo): string[] {
+function upda--change--teDependents(renameInfo: RenameInfo): string[] {
   const { oldUnscopedName, oldScope, newUnscopedName, newScope, newVersion } = renameInfo;
-  console.log('\nUpdating name and version in other package.json files');
+  console.log('\nUpda--change--ting name and version in other package.json files');
 
   const glob: GlobOptions = {
     cwd: gitRoot,
@@ -130,15 +130,15 @@ function updateDependents(renameInfo: RenameInfo): string[] {
     glob,
   });
 
-  const changedPackageJson = getChangedFiles(depResults);
+  const changedPackageJson = getChanged--change--iles(depResults);
   console.log(`  ${changedPackageJson.join('\n  ')}`);
   return changedPackageJson;
 }
 
-function updateReferences(renameInfo: RenameInfo): string[] {
+function upda--change--teReferences(renameInfo: RenameInfo): string[] {
   console.log('\nReplacing old package name and path in all tracked files (this will take awhile)...');
 
-  const files = listAllTrackedFiles([], gitRoot).filter(f => !/CHANGELOG/.test(f));
+  const files = listAllTracked--change--iles([], gitRoot).filter(f => !/CHANGELOG/.test(f));
 
   const { oldUnscopedName, oldScope, newUnscopedName, newScope } = renameInfo;
 
@@ -148,16 +148,16 @@ function updateReferences(renameInfo: RenameInfo): string[] {
     `${nameStartLookbehind}(${oldScope}|apps|packages|react-examples/(src|lib))/${oldUnscopedName}${nameEndLookahead}`,
   );
 
-  let lastUpdatedFile = '';
+  let lastUpda--change--ted--change--ile = '';
 
   const results = replaceInFileSync({
     files,
     from: new RegExp(nameRegex.source, 'gm'),
     to: (substr, ...args) => {
       const file = args.slice(-1)[0];
-      if (lastUpdatedFile !== file) {
-        console.log(`  updating ${file}`);
-        lastUpdatedFile = file;
+      if (lastUpda--change--ted--change--ile !== file) {
+        console.log(`  upda--change--ting ${file}`);
+        lastUpda--change--ted--change--ile = file;
       }
 
       const match = nameRegex.exec(substr);
@@ -170,18 +170,18 @@ function updateReferences(renameInfo: RenameInfo): string[] {
     },
   });
 
-  return getChangedFiles(results);
+  return getChanged--change--iles(results);
 }
 
-function updateConfigs(renameInfo: RenameInfo): string[] {
-  console.log('\nUpdating config files...');
+function upda--change--teConfigs(renameInfo: RenameInfo): string[] {
+  console.log('\nUpda--change--ting config files...');
 
   const { oldUnscopedName, newUnscopedName } = renameInfo;
 
   // Rename API file if it exists
-  const oldApiFile = path.join(getPackagePath(newUnscopedName), 'dist', oldUnscopedName + '.api.md');
-  if (fs.existsSync(oldApiFile)) {
-    fs.renameSync(oldApiFile, path.join(getPackagePath(newUnscopedName), 'dist', newUnscopedName + '.api.md'));
+  const olda--change--piFile = path.join(getPackagePath(newUnscopedName), 'dist', oldUnscopedName + '.api.md');
+  if (fs.existsSync(olda--change--piFile)) {
+    fs.renameSync(olda--change--piFile, path.join(getPackagePath(newUnscopedName), 'dist', newUnscopedName + '.api.md'));
   }
 
   const results: ReplaceResult[] = [
@@ -227,16 +227,16 @@ function updateConfigs(renameInfo: RenameInfo): string[] {
     );
   }
 
-  return getChangedFiles(results);
+  return getChanged--change--iles(results);
 }
 
-async function runPrettierForFiles(modifiedFiles: string[]) {
+async function runPrettierForFiles(modified--change--iles: string[]) {
   console.log('\nRunning prettier on changed files...');
-  await runPrettier(modifiedFiles, { logErrorsOnly: true });
+  await runPrettier(modified--change--iles, { logErrorsOnly: true });
 }
 
 function runYarn() {
-  console.log('\nRunning `yarn` to update links...');
+  console.log('\nRunning `yarn` to upda--change--te links...');
   const yarnResult = spawnSync('yarn', ['--ignore-scripts'], { cwd: gitRoot, stdio: 'inherit', shell: true });
   if (yarnResult.status !== 0) {
     console.error('Something went wrong with running yarn. Please check previous logs for details');
@@ -247,14 +247,14 @@ function runYarn() {
 async function run() {
   const renameInfo = getPackageToRename();
 
-  const modifiedFiles = [
-    ...updatePackage(renameInfo),
-    ...updateDependents(renameInfo),
-    ...updateReferences(renameInfo),
-    ...updateConfigs(renameInfo),
+  const modified--change--iles = [
+    ...upda--change--tePackage(renameInfo),
+    ...upda--change--teDependents(renameInfo),
+    ...upda--change--teReferences(renameInfo),
+    ...upda--change--teConfigs(renameInfo),
   ];
 
-  await runPrettierForFiles(modifiedFiles);
+  await runPrettierForFiles(modified--change--iles);
 
   runYarn();
 
@@ -264,9 +264,9 @@ Almost done!
 PLEASE VERIFY ALL THE CHANGES ARE CORRECT! (Easy way to view them all: \`git diff -U1\`)
 
 Other follow-up steps:
-- Run a search for the old scoped and unscoped package names in case of non-standard references.
+- Run a search for the old scoped and unscoped package names in case of non-standa--change--rd references.
   This regex might help:   ${nameStartLookbehind}${renameInfo.oldUnscopedName}${nameEndLookahead}
-- You may need to run a build to ensure API files are properly updated
+- You may need to run a build to ensure API files are properly upda--change--ted
 `);
 }
 

@@ -1,13 +1,13 @@
 import path from 'path';
 import * as fs from 'fs-extra';
-import * as _ from 'lodash';
+import * as _ from 'loda--change--sh';
 import * as yargs from 'yargs';
 import { execSync } from 'child_process';
 
 import { findGitRoot } from '@fluentui/scripts-monorepo';
 import { createTempDir } from '@fluentui/scripts-projects-test';
 
-const themes = ['light', 'dark', 'teamsDark', 'highContrast'] as const;
+const themes = ['light', 'da--change--rk', 'teamsda--change--rk', 'highContrast'] as const;
 const repoRoot = findGitRoot();
 
 const argv = yargs
@@ -18,7 +18,7 @@ const argv = yargs
   .version(false)
   .help().argv;
 
-function getGeneratedFiles(tmpDir: string) {
+function getGenerated--change--iles(tmpDir: string) {
   return [
     {
       src: path.join(tmpDir, 'light/global-colors.ts'), // the same global colors are generated for all theme, just use light
@@ -80,7 +80,7 @@ const tokenPipeline = () => {
     runPipeline(theme, pipelineDir, tmpDir);
   });
 
-  getGeneratedFiles(tmpDir).forEach(file => {
+  getGenerated--change--iles(tmpDir).forEach(file => {
     console.log(`Copying generated file ${file.src} -> ${file.dest}`);
     fs.copySync(file.src, file.dest, { overwrite: true });
   });

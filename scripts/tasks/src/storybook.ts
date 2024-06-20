@@ -5,14 +5,14 @@ import { findGitRoot } from '@fluentui/scripts-monorepo';
 
 // TODO: this should be replaced with `'@storybook/core-server';` API
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore- standalone.js is basically private API/thus doesn't ship types. NOTE: Storybook can be run standalone from Node, although it should be noted this isn't officially supported any more. - https://github.com/storybookjs/storybook/blob/master/lib/core/docs/standalone.md#standalone-mode
-import _storybook from '@storybook/react/standalone';
-const storybook: StorybookStandaloneBuildFn = _storybook;
+// @ts-ignore- standa--change--lone.js is basically private API/thus doesn't ship types. NOTE: Storybook can be run standa--change--lone from Node, although it should be noted this isn't officially supported any more. - https://github.com/storybookjs/storybook/blob/master/lib/core/docs/standa--change--lone.md#standa--change--lone-mode
+import _storybook from '@storybook/react/standa--change--lone';
+const storybook: StorybookStanda--change--loneBuild--change--n = _storybook;
 
-type StorybookStandaloneBuildFn = (options?: StorybookDevOptions | StorybookStaticOptions) => Promise<void>;
+type StorybookStanda--change--loneBuild--change--n = (options?: StorybookDevOptions | StorybookStaticOptions) => Promise<void>;
 
 // Option types are documented here but not included in package for some reason
-// https://github.com/storybookjs/storybook/blob/master/lib/core/docs/standalone.md
+// https://github.com/storybookjs/storybook/blob/master/lib/core/docs/standa--change--lone.md
 
 interface StorybookCommonOptions {
   /** Directory where to load Storybook configurations from */

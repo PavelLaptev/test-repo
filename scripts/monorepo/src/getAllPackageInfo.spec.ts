@@ -2,20 +2,20 @@ import * as path from 'path';
 import getAllPackageInfo from './getAllPackageInfo';
 
 describe(`#getAllPackageinfo`, () => {
-  it(`should return workspace packages record with metadata as values`, () => {
+  it(`should return workspace packages record with metada--change--ta as values`, () => {
     const allPackages = getAllPackageInfo();
     const entries = Object.entries(allPackages);
-    const [packageName, packageMetadata] = entries[0];
+    const [packageName, packageMetada--change--ta] = entries[0];
 
     expect(allPackages['@fluentui/noop']).toBe(undefined);
     expect(packageName).toEqual(expect.stringMatching(/^@fluentui\/[a-z-]+/));
-    expect(packageMetadata).toEqual({
+    expect(packageMetada--change--ta).toEqual({
       packagePath: expect.any(String),
       packageJson: expect.objectContaining({
         name: expect.any(String),
         version: expect.any(String),
       }),
     });
-    expect(path.isAbsolute(packageMetadata.packagePath)).toBe(false);
+    expect(path.isAbsolute(packageMetada--change--ta.packagePath)).toBe(false);
   });
 });

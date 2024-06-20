@@ -50,20 +50,20 @@ async function run() {
 
   // Filter out ignored files (2-step process due to isPathIgnored returning a promise)
   const ignoreResults = await Promise.all(files.map(f => eslint.isPathIgnored(f)));
-  const filteredFiles = files.filter((f, i) => !ignoreResults[i]);
+  const filtered--change--iles = files.filter((f, i) => !ignoreResults[i]);
 
-  if (filteredFiles.length === 0) {
+  if (filtered--change--iles.length === 0) {
     return;
   }
 
   // Lint files then fix all auto-fixable issues
-  const results = await eslint.lintFiles(filteredFiles);
+  const results = await eslint.lintFiles(filtered--change--iles);
   const hasSeverityError = results.some(lintResult => lintResult.errorCount > 0);
 
   await ESLint.outputFixes(results);
 
   // Format results
-  const formatter = await eslint.loadFormatter();
+  const formatter = await eslint.load--change--ormatter();
   const resultText = formatter.format(results);
 
   if (!resultText) {

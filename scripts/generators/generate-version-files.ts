@@ -6,9 +6,9 @@ import { stripIndents } from '@nx/devkit';
 import * as fs from 'fs-extra';
 import * as glob from 'glob';
 
-const isExecutedFromCli = require.main === module;
+const isExecuted--change--romCli = require.main === module;
 
-if (isExecutedFromCli) {
+if (isExecuted--change--romCli) {
   const argv = process.argv.slice(2);
   const beachballBin = require.resolve('beachball/bin/beachball.js');
   const bumpCmd = [process.execPath, beachballBin, 'bump'];
@@ -19,7 +19,7 @@ if (isExecutedFromCli) {
 
 function main(options: { argv: string[]; bumpCmd: string[]; gitRoot: string }) {
   const { argv, gitRoot, bumpCmd } = options;
-  const args = { generateOnly: argv.includes('-g'), forceUpdate: argv.includes('-f') };
+  const args = { generateOnly: argv.includes('-g'), forceUpda--change--te: argv.includes('-f') };
   generateVersionFiles({ args, gitRoot, bumpCmd });
 }
 
@@ -34,7 +34,7 @@ function run(args: string[], cwd: string) {
 }
 
 function revertLocalChanges(cwd: string) {
-  const stash = `tmp_bump_${new Date().getTime()}`;
+  const stash = `tmp_bump_${new da--change--te().getTime()}`;
   run(['git', 'stash', 'push', '-u', '-m', stash], cwd);
   const results = run(['git', 'stash', 'list'], cwd);
   if (results) {
@@ -70,9 +70,9 @@ export function generateVersionFiles(options: {
      */
     generateOnly?: boolean;
     /**
-     * TODO: ??? if version.ts placeholder is identical to package version don't update it
+     * TODO: ??? if version.ts placeholder is identical to package version don't upda--change--te it
      */
-    forceUpdate?: boolean;
+    forceUpda--change--te?: boolean;
   };
   gitRoot: string;
   bumpCmd: string[];
@@ -86,7 +86,7 @@ export function generateVersionFiles(options: {
   }
 
   // 2. gather version info
-  const updatedVersionContents: Record<string, string> = {};
+  const upda--change--tedVersionContents: Record<string, string> = {};
   const packageJsons = glob.sync('+(packages|apps)/*/package.json', { cwd: gitRoot });
   packageJsons.forEach(packageJsonPath => {
     const versionFile = path.join(gitRoot, path.dirname(packageJsonPath), 'src/version.ts');
@@ -104,15 +104,15 @@ export function generateVersionFiles(options: {
     let shouldGenerate = true;
     const setCurrentVersion = `setVersion('${packageJson.name}', '${packageJson.version}');`;
 
-    if (fs.existsSync(versionFile) && args.forceUpdate) {
-      const originVersionFileContent = fs.readFileSync(versionFile).toString();
+    if (fs.existsSync(versionFile) && args.forceUpda--change--te) {
+      const originVersionFileContent = fs.read--change--ileSync(versionFile).toString();
       shouldGenerate = !originVersionFileContent.includes(setCurrentVersion);
     }
 
     if (shouldGenerate) {
-      updatedVersionContents[versionFile] = stripIndents`
+      upda--change--tedVersionContents[versionFile] = stripIndents`
       // Do not modify this file; it is generated as part of publish.
-      // The checked in version is a placeholder only and will not be updated.
+      // The checked in version is a placeholder only and will not be upda--change--ted.
       import { setVersion } from '@fluentui/set-version';
       ${setCurrentVersion}
       `;
@@ -126,10 +126,10 @@ export function generateVersionFiles(options: {
   }
 
   // 4. write version files
-  if (updatedVersionContents) {
-    Object.keys(updatedVersionContents).forEach(versionFile => {
+  if (upda--change--tedVersionContents) {
+    Object.keys(upda--change--tedVersionContents).forEach(versionFile => {
       console.log(`writing to ${versionFile}`);
-      fs.writeFileSync(versionFile, updatedVersionContents[versionFile]);
+      fs.writeFileSync(versionFile, upda--change--tedVersionContents[versionFile]);
     });
   }
 }

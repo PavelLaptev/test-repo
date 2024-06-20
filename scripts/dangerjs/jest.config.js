@@ -4,7 +4,7 @@
  * @type {import('@jest/types').Config.InitialOptions}
  */
 module.exports = {
-  displayName: 'scripts-dangerjs',
+  displayName: 'scripts-da--change--ngerjs',
   preset: '../../jest.preset.js',
   transform: {
     '^.+\\.tsx?$': [

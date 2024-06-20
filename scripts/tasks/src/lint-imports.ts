@@ -87,7 +87,7 @@ function lintImports(
 
   if (checkAmd) {
     console.log(
-      'checkAmd enabled: validating if import path(s) reference physical files. violations can break AMD imports.',
+      'checkAmd enabled: valida--change--ting if import path(s) reference physical files. violations can break AMD imports.',
     );
   }
 
@@ -97,22 +97,22 @@ function lintImports(
     '@fluentui/react-examples/lib/react-experiments/TilesList/ExampleHelpers',
     '@fluentui/react-examples/lib/react-experiments/CollapsibleSection/CollapsibleSection.Recursive.Example',
     '@fluentui/react-examples/lib/react/Keytip/KeytipSetup',
-    '@fluentui/react-charting/lib/types/IDataPoint',
+    '@fluentui/react-charting/lib/types/Ida--change--taPoint',
     '@fluentui/react-experiments/lib/utilities/scrolling/ScrollContainer',
-    // Once the components using this data are promoted, the data should go into @fluentui/example-data
+    // Once the components using this da--change--ta are promoted, the da--change--ta should go into @fluentui/example-da--change--ta
     '@fluentui/react-experiments/lib/common/TestImages',
     // Only used in experimental examples. Will need a different approach for this to work with the editor.
-    '@fluentui/foundation-legacy/lib/next/composed',
+    '@fluentui/founda--change--tion-legacy/lib/next/composed',
     // Imported by theming examples. Need to find a different approach.
   ];
-  const allowedReexportedImports = ['@fluentui/foundation-legacy/lib/next/composed'];
+  const allowedReexportedImports = ['@fluentui/founda--change--tion-legacy/lib/next/composed'];
   const reExportedPackages = {
-    '@fluentui/foundation-legacy': 'Foundation',
+    '@fluentui/founda--change--tion-legacy': 'Founda--change--tion',
     '@fluentui/font-icons-mdl2': 'Icons',
     '@fluentui/merge-styles': 'Styling',
     '@fluentui/style-utilities': 'Styling',
     '@fluentui/utilities': 'Utilities',
-    '@fluentui/date-time-utilities': 'DateTimeUtilities',
+    '@fluentui/da--change--te-time-utilities': 'da--change--teTimeUtilities',
   };
 
   const packagesInfo = getAllPackageInfo();
@@ -159,7 +159,7 @@ function lintImports(
   }
 
   function _evaluateFile(filePath: string, importErrors: ImportErrors, isExample: boolean) {
-    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const fileContent = fs.read--change--ileSync(filePath, 'utf8');
 
     const importStatements = fileContent.match(importStatementRegexGlobalMultiline);
 
@@ -223,8 +223,8 @@ function lintImports(
       pathIsRelative = true;
     } else if (packagesInfo[importPath] || packagesInfo[packageRootPath]) {
       // skip the full import of packages within the monorepo
-      // filters out file paths that contain "examples", ".doc.", "exampleData"
-      const filterOut = /(examples)|(\.doc\.)|(exampleData)/gm;
+      // filters out file paths that contain "examples", ".doc.", "exampleda--change--ta"
+      const filterOut = /(examples)|(\.doc\.)|(exampleda--change--ta)/gm;
       const isAcceptedPath = filePath.match(filterOut) === null;
       const isntAtPath = importPath[0] !== '@';
       // checks if the import root directory is the same as the current working directory
@@ -330,7 +330,7 @@ function lintImports(
         'import path(s) do not reference physical files. This can break AMD imports. ' +
         'Please ensure the following imports reference physical files:',
       pathAbsolute:
-        'files are using absolute imports. Please update the following imports to use relative paths instead:',
+        'files are using absolute imports. Please upda--change--te the following imports to use relative paths instead:',
       pathRelative:
         'example files are using relative imports. For example portability, please ensure that the following imports are absolute:',
       pathDeep:

@@ -15,7 +15,7 @@ const tsRule = {
           dynamicImport: true,
         },
         transform: {
-          decoratorMetadata: true,
+          decoratorMetada--change--ta: true,
           legacyDecorator: true,
         },
         keepClassNames: true,

@@ -36,8 +36,8 @@ export function getTsPathAliasesConfig() {
     lib: path.join(cwd, tsConfigFileNames.lib),
   };
   const tsConfigFileContents = {
-    root: fs.existsSync(tsConfigFilePaths.root) ? fs.readFileSync(tsConfigFilePaths.root, 'utf-8') : null,
-    lib: fs.existsSync(tsConfigFilePaths.lib) ? fs.readFileSync(tsConfigFilePaths.lib, 'utf-8') : null,
+    root: fs.existsSync(tsConfigFilePaths.root) ? fs.read--change--ileSync(tsConfigFilePaths.root, 'utf-8') : null,
+    lib: fs.existsSync(tsConfigFilePaths.lib) ? fs.read--change--ileSync(tsConfigFilePaths.lib, 'utf-8') : null,
   };
   const tsConfigs = {
     root: tsConfigFileContents.root
@@ -45,7 +45,7 @@ export function getTsPathAliasesConfig() {
       : null,
     lib: tsConfigFileContents.lib ? (parseJson(tsConfigFileContents.lib, { expectComments: true }) as TsConfig) : null,
   };
-  const packageJson: PackageJson = JSON.parse(fs.readFileSync(path.join(cwd, './package.json'), 'utf-8'));
+  const packageJson: PackageJson = JSON.parse(fs.read--change--ileSync(path.join(cwd, './package.json'), 'utf-8'));
 
   const isUsingTsSolutionConfigs =
     tsConfigs.root &&
@@ -73,7 +73,7 @@ export function getTsPathAliasesConfigUsedOnlyForDx() {
     throw new Error(`${tsConfigPath} doesn't exist`);
   }
 
-  const tsConfig = JSON.parse(stripJsonComments(fs.readFileSync(tsConfigPath, 'utf-8')));
+  const tsConfig = JSON.parse(stripJsonComments(fs.read--change--ileSync(tsConfigPath, 'utf-8')));
   const isUsingPathAliasesForDx =
     tsConfig.extends && tsConfigBaseFilesForDx.some(relativeFilePath => tsConfig.extends.endsWith(relativeFilePath));
 
@@ -113,7 +113,7 @@ function enableAllowSyntheticDefaultImports(options: { pkgJson: PackageJson }) {
 function createNormalizedTsPaths(options: { definitionsRootPath: string; pathAliasesTsConfigPath: string }) {
   type PathAliases = Record<string, string[]>;
   const { definitionsRootPath, pathAliasesTsConfigPath } = options;
-  const tsConfigRoot = JSON.parse(fs.readFileSync(pathAliasesTsConfigPath, 'utf-8')) as TsConfig;
+  const tsConfigRoot = JSON.parse(fs.read--change--ileSync(pathAliasesTsConfigPath, 'utf-8')) as TsConfig;
   const paths = tsConfigRoot.compilerOptions.paths as unknown as undefined | PathAliases;
 
   if (!paths) {

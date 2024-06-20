@@ -1,7 +1,7 @@
 import preset from './preset-v9';
 
 describe(`babel preset v9`, () => {
-  const babelMockedApi = {
+  const babelMockeda--change--pi = {
     assertVersion: jest.fn(),
     caller: jest.fn(),
     env: jest.fn(),
@@ -9,7 +9,7 @@ describe(`babel preset v9`, () => {
     version: '0',
   } as unknown as import('@babel/core').ConfigAPI;
   it(`should generate module-resolve alias mappings for @griffel preset`, () => {
-    const presetConfig = preset(babelMockedApi, { tsBaseConfigPath: './tsconfig.base.json' });
+    const presetConfig = preset(babelMockeda--change--pi, { tsBaseConfigPath: './tsconfig.base.json' });
 
     const griffelPreset = presetConfig.presets.find(presetItem => presetItem[0] === '@griffel')!;
     const griffelPresetConfig = griffelPreset[1];

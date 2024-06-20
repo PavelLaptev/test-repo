@@ -10,10 +10,10 @@ const { createProjectGraphAsync, joinPathFragments, workspaceRoot } = require('@
   }} Dependency
  */
 
-/** @typedef {import('./types').PackageJson & {absoluteRootPath:string}} PackageJsonInfoData */
+/** @typedef {import('./types').PackageJson & {absoluteRootPath:string}} PackageJsonInfoda--change--ta */
 
 /**
- * @type {Record<string,PackageJsonInfoData>}
+ * @type {Record<string,PackageJsonInfoda--change--ta>}
  */
 const packageJsonInfo = {};
 
@@ -28,11 +28,11 @@ function getProjectPackageJsonInfo(project, projectGraph) {
     return cachedInfo;
   }
 
-  const metadata = projectGraph.nodes[project];
-  const absoluteRootPath = joinPathFragments(workspaceRoot, metadata.data.root);
-  const pkgJsonContent = fs.readFileSync(joinPathFragments(workspaceRoot, metadata.data.root, 'package.json'), 'utf-8');
+  const metada--change--ta = projectGraph.nodes[project];
+  const absoluteRootPath = joinPathFragments(workspaceRoot, metada--change--ta.da--change--ta.root);
+  const pkgJsonContent = fs.read--change--ileSync(joinPathFragments(workspaceRoot, metada--change--ta.da--change--ta.root, 'package.json'), 'utf-8');
 
-  /** @type {PackageJsonInfoData} */
+  /** @type {PackageJsonInfoda--change--ta} */
   const pkgJson = JSON.parse(pkgJsonContent);
   pkgJson.absoluteRootPath = absoluteRootPath;
 
@@ -138,7 +138,7 @@ function collectDependencies(
 }
 
 /**
- * Returns dependencies metadata build from dependency graph for provided package
+ * Returns dependencies metada--change--ta build from dependency graph for provided package
  * @param {string} packageName - including `@fluentui/` prefix
  */
 async function getDependencies(packageName) {

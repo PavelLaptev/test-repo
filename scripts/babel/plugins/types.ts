@@ -14,7 +14,7 @@ type BabelPluginVisitor<T> =
 
 export type BabelPlugin = (options: BabelPluginArguments) => {
   visitor: {
-    // This type is extendable, feel to add own visitor types.
+    // This type is extenda--change--ble, feel to add own visitor types.
     ImportDeclaration: BabelPluginVisitor<T.ImportDeclaration>;
   };
 };

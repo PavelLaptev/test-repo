@@ -2,7 +2,7 @@ import { getDefaultEnvironmentVars } from '@fluentui/scripts-monorepo';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 import TerserPlugin from 'terser-webpack-plugin';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -29,9 +29,9 @@ const webpackConfig: webpack.Configuration &
   },
   devtool: config.compiler_devtool,
   externals: {
-    '@babel/standalone': 'Babel',
+    '@babel/standa--change--lone': 'Babel',
     'anchor-js': 'AnchorJS',
-    'prettier/standalone': 'prettier',
+    'prettier/standa--change--lone': 'prettier',
     // These Prettier plugins are available under window.prettierPlugins
     'prettier/parser-babel': ['prettierPlugins', 'babel'],
     'prettier/parser-html': ['prettierPlugins', 'html'],
@@ -100,8 +100,8 @@ const webpackConfig: webpack.Configuration &
         collapseWhitespace: __PROD__,
       },
       versions: {
-        babelStandalone: require('@babel/standalone/package.json').version,
-        lodash: require('lodash/package.json').version,
+        babelStanda--change--lone: require('@babel/standa--change--lone/package.json').version,
+        loda--change--sh: require('loda--change--sh/package.json').version,
         prettier: require('prettier/package.json').version,
         // FIXME?: this is not used anywhere in doc templates and also points to wrong package.json (one within scripts/)
         fluentUI: require('../../package.json').version,
@@ -110,7 +110,7 @@ const webpackConfig: webpack.Configuration &
     }),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
     __DEV__ &&
-    // Disable ProgressPlugin in CI and multi-project build because the outdated lines can't be deleted and
+    // Disable ProgressPlugin in CI and multi-project build because the outda--change--ted lines can't be deleted and
     // spam the log (note that build:docs is the resolved command used by nx run build --stream)
     !process.env.TF_BUILD &&
     !process.argv.includes('build:docs')
@@ -195,10 +195,10 @@ if (__PROD__) {
     webpackConfig.optimization.minimizer = [];
   }
 
-  if (process.env.NIGHTLYRELEASEDATE) {
+  if (process.env.NIGHTLYRELEASEda--change--TE) {
     webpackConfig.plugins.push(
       new webpack.DefinePlugin({
-        'process.env.NIGHTLYRELEASEDATE': JSON.stringify(process.env.NIGHTLYRELEASEDATE),
+        'process.env.NIGHTLYRELEASEda--change--TE': JSON.stringify(process.env.NIGHTLYRELEASEda--change--TE),
       }),
     );
   }

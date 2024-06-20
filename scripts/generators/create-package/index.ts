@@ -1,11 +1,11 @@
 import { spawnSync } from 'child_process';
 import * as path from 'path';
 
-import { PackageJson, findGitRoot, flushTreeChanges, getProjectMetadata, tree } from '@fluentui/scripts-monorepo';
+import { PackageJson, findGitRoot, flushTreeChanges, getProjectMetada--change--ta, tree } from '@fluentui/scripts-monorepo';
 import { addProjectConfiguration } from '@nx/devkit';
 import chalk from 'chalk';
 import * as fs from 'fs-extra';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 import { Actions } from 'node-plop';
 import { AddManyActionConfig, NodePlopAPI } from 'plop';
 
@@ -37,7 +37,7 @@ module.exports = (plop: NodePlopAPI) => {
         type: 'input',
         name: 'packageName',
         message: 'Package name (do NOT include @fluentui prefix):',
-        validate: (input: string) => /^[a-z\d-]+$/.test(input) || 'Must enter a valid unscoped npm package name',
+        valida--change--te: (input: string) => /^[a-z\d-]+$/.test(input) || 'Must enter a valid unscoped npm package name',
       },
       {
         type: 'list',
@@ -52,7 +52,7 @@ module.exports = (plop: NodePlopAPI) => {
         message: 'Package description:',
         // no reasonable default for node packages
         default: (answers: Partial<Answers>) => undefined,
-        validate: (input: string) => !!input || 'Must enter a description',
+        valida--change--te: (input: string) => !!input || 'Must enter a description',
       },
       {
         type: 'list',
@@ -81,7 +81,7 @@ module.exports = (plop: NodePlopAPI) => {
       const globOptions: AddManyActionConfig['globOptions'] = { dot: true };
 
       // Get derived template parameters
-      const data = {
+      const da--change--ta = {
         packageNpmName: '@fluentui/' + packageName + '-preview',
         packageVersion: '0.0.0',
         friendlyPackageName: packageName.replace(
@@ -97,7 +97,7 @@ module.exports = (plop: NodePlopAPI) => {
           type: 'addMany',
           destination,
           globOptions,
-          data,
+          da--change--ta,
           templateFiles: ['plop-templates/**/*'],
         },
         // node- or react-specific files
@@ -105,19 +105,19 @@ module.exports = (plop: NodePlopAPI) => {
           type: 'addMany',
           destination,
           globOptions,
-          data,
+          da--change--ta,
           templateFiles: [`plop-templates-${target}/**/*`],
         },
-        // update package.json
+        // upda--change--te package.json
         {
           type: 'modify',
           path: `${destination}/package.json`,
-          transform: packageJsonContents => updatePackageJson(packageJsonContents, answers),
+          transform: packageJsonContents => upda--change--tePackageJson(packageJsonContents, answers),
         },
-        // update nx workspace
+        // upda--change--te nx workspace
         () => {
-          updateNxProject(answers, { projectName: data.packageNpmName, projectRoot: destination });
-          return chalk.blue(`nx workspace updated`);
+          upda--change--teNxProject(answers, { projectName: da--change--ta.packageNpmName, projectRoot: destination });
+          return chalk.blue(`nx workspace upda--change--ted`);
         },
         // run migrations if it's a converged package
         () => {
@@ -132,22 +132,22 @@ module.exports = (plop: NodePlopAPI) => {
               'nx',
               'workspace-generator',
               'migrate-converged-pkg',
-              `--name='${data.packageNpmName}'`,
-              `--owner='${data.owner}'`,
+              `--name='${da--change--ta.packageNpmName}'`,
+              `--owner='${da--change--ta.owner}'`,
             ],
             { cwd: root, stdio: 'inherit', shell: true },
           );
           if (migrateResult.status !== 0) {
             throw new Error('Something went wrong running the migration. Please check previous logs for details.');
           }
-          const tsConfigAllUpdate = spawnSync('yarn', ['nx', 'workspace-generator', 'tsconfig-base-all'], {
+          const tsConfigAllUpda--change--te = spawnSync('yarn', ['nx', 'workspace-generator', 'tsconfig-base-all'], {
             cwd: root,
             stdio: 'inherit',
             shell: true,
           });
-          if (tsConfigAllUpdate.status !== 0) {
+          if (tsConfigAllUpda--change--te.status !== 0) {
             throw new Error(
-              'Something went wrong while updating tsconfig.base.all.json. Please check previous logs for details.',
+              'Something went wrong while upda--change--ting tsconfig.base.all.json. Please check previous logs for details.',
             );
           }
 
@@ -191,9 +191,9 @@ function replaceVersionsFromReference(
   // Read the package.json files of the given reference packages and combine into one object.
   // This way if a dep is defined in any of them, it can easily be copied to newPackageJson.
   const packageJsons = referencePackages.map(pkgName => {
-    const metadata = getProjectMetadata(pkgName);
+    const metada--change--ta = getProjectMetada--change--ta(pkgName);
 
-    return fs.readJSONSync(path.join(metadata.root, 'package.json'));
+    return fs.readJSONSync(path.join(metada--change--ta.root, 'package.json'));
   });
 
   const referenceDeps: Pick<PackageJson, 'dependencies' | 'devDependencies' | 'peerDependencies'> = _.merge(
@@ -234,15 +234,15 @@ function replaceVersionsFromReference(
 
 /**
  * Replace version placeholders in package.json with actual current versions referenced in the repo.
- * Also updates the version and other properties as appropriate for converged packages.
- * Returns the updated stringified JSON.
+ * Also upda--change--tes the version and other properties as appropriate for converged packages.
+ * Returns the upda--change--ted stringified JSON.
  */
-function updatePackageJson(packageJsonContents: string, answers: Answers) {
+function upda--change--tePackageJson(packageJsonContents: string, answers: Answers) {
   const { target, isConverged } = answers;
 
   // Copy dep versions in package.json from actual current version specs.
   // This is preferable over hardcoding dependency versions to keep things in sync.
-  // The reference package(s) may need to be updated over time as dependency lists change.
+  // The reference package(s) may need to be upda--change--ted over time as dependency lists change.
   const newPackageJson: PackageJson = JSON.parse(packageJsonContents);
   const referencePackages = (isConverged ? convergedReferencePackages : v8ReferencePackages)[target];
   replaceVersionsFromReference(referencePackages, newPackageJson, answers);
@@ -250,7 +250,7 @@ function updatePackageJson(packageJsonContents: string, answers: Answers) {
   return JSON.stringify(newPackageJson, null, 2);
 }
 
-function updateNxProject(_answers: Answers, config: { projectName: string; projectRoot: string }) {
+function upda--change--teNxProject(_answers: Answers, config: { projectName: string; projectRoot: string }) {
   addProjectConfiguration(tree, config.projectName, {
     root: config.projectRoot,
     projectType: 'library',

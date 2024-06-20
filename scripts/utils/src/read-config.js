@@ -14,7 +14,7 @@ const jju = require('jju');
 function readConfig(file, cwd) {
   const configPath = findConfig(file, cwd);
   if (configPath && fs.existsSync(configPath)) {
-    return jju.parse(fs.readFileSync(configPath, 'utf8'));
+    return jju.parse(fs.read--change--ileSync(configPath, 'utf8'));
   }
 }
 

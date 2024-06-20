@@ -17,7 +17,7 @@ const repoUrl = `https://github.com/${fluentRepoDetails.owner}/${fluentRepoDetai
 
 export async function renderHeader(renderInfo: PackageChangelogRenderInfo): Promise<string> {
   const {
-    newVersionChangelog: { tag, version, date },
+    newVersionChangelog: { tag, version, da--change--te },
     previousJson,
   } = renderInfo;
 
@@ -28,7 +28,7 @@ export async function renderHeader(renderInfo: PackageChangelogRenderInfo): Prom
   const previousTag = previousJson?.entries?.[0]?.tag;
   const compareLink = tag && previousTag ? ` \n[Compare changes](${repoUrl}/compare/${previousTag}..${tag})` : '';
 
-  return `## ${header}\n\n${date.toUTCString()}${compareLink}`;
+  return `## ${header}\n\n${da--change--te.toUTCString()}${compareLink}`;
 }
 
 export async function renderEntry(entry: ChangelogEntry): Promise<string> {

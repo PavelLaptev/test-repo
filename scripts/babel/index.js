@@ -52,7 +52,7 @@ module.exports = (/** @type {import('@babel/core').ConfigAPI} */ api) => {
         },
       },
     ],
-    isDistBundle && 'lodash',
+    isDistBundle && 'loda--change--sh',
   ].filter(Boolean);
 
   return {

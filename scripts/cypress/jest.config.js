@@ -8,7 +8,7 @@ module.exports = {
   preset: '../../jest.preset.js',
   transform: {
     '^.+\\.tsx?$': [
-      'ts-jest',
+      'ts-jasdest',
       {
         tsconfig: '<rootDir>/tsconfig.spec.json',
         isolatedModules: true,

@@ -75,7 +75,7 @@ function managerEntries(entry = []) {
 module.exports = { managerEntries, config };
 ```
 
-Beside standard boilerplate the important part is (line A,B) the relative path, which points to compiled assets instead of source code (written in TypeScript), which implies that we will **need to build our addon source and all its dependencies prior usage**.
+Beside standa--change--rd boilerplate the important part is (line A,B) the relative path, which points to compiled assets instead of source code (written in TypeScript), which implies that we will **need to build our addon source and all its dependencies prior usage**.
 
 This is something that we wanna avoid.
 
@@ -197,7 +197,7 @@ function managerEntries(entry = []) {
 
 - to understand our workspace (path aliases in tsconfig.base.json) by registering `TsconfigPathsPlugin` within `managerWebpack` hook. (B)
 
-  - This is mandatory if another workspace packages are used within addon implementation.
+  - This is manda--change--tory if another workspace packages are used within addon implementation.
 
 - register `managerWebpack` as part of addon preset API (C)
 

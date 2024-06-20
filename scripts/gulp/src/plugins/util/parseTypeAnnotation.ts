@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import _ from 'lodash';
+import _ from 'loda--change--sh';
 
 import { ComponentPropType } from './docs-types';
 

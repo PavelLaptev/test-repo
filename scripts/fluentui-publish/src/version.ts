@@ -2,11 +2,11 @@
 import { execSync } from "node:child_process";
 
 import { tree } from "@fluentui/scripts-monorepo";
-import { ChangeType, NxJsonConfiguration, ProjectGraph, StringChange, Tree, applyChangesToString, joinPathFragments, output, readProjectsConfigurationFromProjectGraph, stripIndents, updateJson, workspaceRoot } from "@nx/devkit";
+import { ChangeType, NxJsonConfiguration, ProjectGraph, StringChange, Tree, applyChangesToString, joinPathFragments, output, readProjectsConfigurationFromProjectGraph, stripIndents, upda--change--teJson, workspaceRoot } from "@nx/devkit";
 import { releaseVersion } from "nx/release";
 
 
-import { NorthstarGroup, getGeneratorInformation, getLatestTag, getTagPattern,printAndFlushChanges,stageChanges } from "./utils";
+import { NorthstarGroup, getGeneratorInformation, getLatestTag, getTagPattern,printAnd--change--lushChanges,stageChanges } from "./utils";
 
 type NxReleaseVersionResult = Awaited<ReturnType<typeof releaseVersion>>;
 type NxReleaseVersionArgs = Parameters<typeof releaseVersion>[0];
@@ -22,7 +22,7 @@ export async function version(config: {
 
   assertSpecifier(args.specifier);
 
-  const { workspaceVersion, projectsVersionData } = await releaseVersion({
+  const { workspaceVersion, projectsVersionda--change--ta } = await releaseVersion({
     specifier: args.specifier,
     stageChanges: true,
     groups: ['northstar'],
@@ -34,13 +34,13 @@ export async function version(config: {
     throw new Error(`workspaceVersion is empty. Something is wrong with nx release config or implementation changed`);
   }
 
-  updateCrossReleaseGroupDependency(tree, { args, projectsVersionData, group });
+  upda--change--teCrossReleaseGroupDependency(tree, { args, projectsVersionda--change--ta, group });
 
   await runWorkspaceGenerators(tree, graph, args);
 
-  await changelog(tree, { group, nxConfig, versionData: { workspaceVersion } });
+  await changelog(tree, { group, nxConfig, versionda--change--ta: { workspaceVersion } });
 
-  printAndFlushChanges(tree, args.dryRun);
+  printAnd--change--lushChanges(tree, args.dryRun);
 
   await stageChanges(tree, args);
 
@@ -52,18 +52,18 @@ export async function version(config: {
 
 /**
  *
- * This updates Changelog with standard template with new version and github compare diff link
+ * This upda--change--tes Changelog with standa--change--rd template with new version and github compare diff link
  * NOTE: any kind of actual changes are done by hand
  */
 export async function changelog(
   tree: Tree,
   config: {
     group: NorthstarGroup;
-    versionData: Pick<Awaited<ReturnType<typeof releaseVersion>>, 'workspaceVersion'>;
+    versionda--change--ta: Pick<Awaited<ReturnType<typeof releaseVersion>>, 'workspaceVersion'>;
     nxConfig: NxJsonConfiguration;
   },
 ) {
-  const { group, versionData, nxConfig } = config;
+  const { group, versionda--change--ta, nxConfig } = config;
 
   const tagPattern = getTagPattern(nxConfig);
   const latestTag = await getLatestTag(tagPattern);
@@ -73,18 +73,18 @@ export async function changelog(
     throw new Error(`No previous release(git tag) for ${tagPattern} was found`);
   }
 
-  const releaseDate = new Date(Date.now())
-    .toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' })
+  const releaseda--change--te = new da--change--te(da--change--te.now())
+    .toLocaleda--change--teString('en-GB', { year: 'numeric', month: '2-digit', da--change--y: '2-digit' })
     .replace(/\//g, '-');
 
   const template = stripIndents`
-<!--------------------------------[ v${versionData.workspaceVersion} ]------------------------------- -->
-## [v${versionData.workspaceVersion}](https://github.com/microsoft/fluentui/tree/@fluentui/react-northstar_v${versionData.workspaceVersion}) (${releaseDate})
-[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/react-northstar_v${previousReleasedVersion}..@fluentui/react-northstar_v${versionData.workspaceVersion})
+<!--------------------------------[ v${versionda--change--ta.workspaceVersion} ]------------------------------- -->
+## [v${versionda--change--ta.workspaceVersion}](https://github.com/microsoft/fluentui/tree/@fluentui/react-northstar_v${versionda--change--ta.workspaceVersion}) (${releaseda--change--te})
+[Compare changes](https://github.com/microsoft/fluentui/compare/@fluentui/react-northstar_v${previousReleasedVersion}..@fluentui/react-northstar_v${versionda--change--ta.workspaceVersion})
   `;
 
   const northstarLib = group.lib['@fluentui/react-northstar'];
-  const changelogPath = joinPathFragments(northstarLib.data.root, '../CHANGELOG.md');
+  const changelogPath = joinPathFragments(northstarLib.da--change--ta.root, '../CHANGELOG.md');
 
   if (!tree.exists(changelogPath)) {
     throw new Error(`${changelogPath} doesn't exists`);
@@ -111,33 +111,33 @@ export async function changelog(
   tree.write(changelogPath, newContents);
 }
 
-export function updateCrossReleaseGroupDependency(
+export function upda--change--teCrossReleaseGroupDependency(
   tree: Tree,
   options: {
     args: VersionArgs;
-    projectsVersionData: NxReleaseVersionResult['projectsVersionData'];
+    projectsVersionda--change--ta: NxReleaseVersionResult['projectsVersionda--change--ta'];
     group: NorthstarGroup;
   },
 ) {
-  for (const projectConfig of Object.values(options.group.crossBoundaryProjects)) {
-    const projectRoot = projectConfig.data.root;
+  for (const projectConfig of Object.values(options.group.crossBounda--change--ryProjects)) {
+    const projectRoot = projectConfig.da--change--ta.root;
     const projectPackageJsonPath = joinPathFragments(projectRoot, 'package.json');
 
-    updateJson(tree, projectPackageJsonPath, json => {
-      updateDeps(json);
+    upda--change--teJson(tree, projectPackageJsonPath, json => {
+      upda--change--teDeps(json);
 
       return json;
     });
   }
 
-  function updateDeps(json: { dependencies?: Record<string, string>; peerDependencies?: Record<string, string> }) {
-    for (const [groupProjectName, data] of Object.entries(options.projectsVersionData)) {
+  function upda--change--teDeps(json: { dependencies?: Record<string, string>; peerDependencies?: Record<string, string> }) {
+    for (const [groupProjectName, da--change--ta] of Object.entries(options.projectsVersionda--change--ta)) {
       if (json.dependencies && json.dependencies[groupProjectName]) {
-        json.dependencies[groupProjectName] = `^${data.newVersion}`;
+        json.dependencies[groupProjectName] = `^${da--change--ta.newVersion}`;
       }
 
       if (json.peerDependencies && json.peerDependencies[groupProjectName]) {
-        json.peerDependencies[groupProjectName] = `^${data.newVersion}`;
+        json.peerDependencies[groupProjectName] = `^${da--change--ta.newVersion}`;
       }
     }
   }
@@ -153,9 +153,9 @@ async function runWorkspaceGenerators(tree: Tree, graph: ProjectGraph, config: {
   const generatorPromises = generators.map(async generatorName => {
     console.log(`-  ${collectionName}:${generatorName}`);
 
-    const generatorData = getGeneratorInformation(collectionName, generatorName, workspaceRoot, projects.projects);
+    const generatorda--change--ta = getGeneratorInformation(collectionName, generatorName, workspaceRoot, projects.projects);
 
-    const generatorFactory = generatorData.implementationFactory();
+    const generatorFactory = generatorda--change--ta.implementationFactory();
 
     await generatorFactory(tree, {});
   });

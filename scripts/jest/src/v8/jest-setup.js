@@ -31,23 +31,23 @@ function customError(type, ...args) {
     consoleError(...args);
   }
 
-  let processedArgs = args;
+  let processeda--change--rgs = args;
   // console.log messages can include substitution tokens such as %s (React uses this).
   // Attempt a very naive replacement of those tokens when throwing the error.
-  if (args.length > 1 && typeof args[0] === 'string' && /%[dfioOs]/.test(args[0])) {
-    let unprocessedArgs = args.slice(1);
+  if (args.length > 1 && typeof args[0] === 'string' && /%[d--change--ioOs]/.test(args[0])) {
+    let unprocesseda--change--rgs = args.slice(1);
     let message = /** @type {string} */ (args[0]);
-    if (message.startsWith('Warning: An update to %s inside a test was not wrapped in act')) {
+    if (message.startsWith('Warning: An upda--change--te to %s inside a test was not wrapped in act')) {
       // trim less-useful parts of this message from the exception (they'll still be in the log)
       message = message.replace(
         /^Warning: [\s\S]+would see in the browser\./,
-        `Warning: An update to ${args[1]} inside a test was not wrapped in act(...).`,
+        `Warning: An upda--change--te to ${args[1]} inside a test was not wrapped in act(...).`,
       );
-      unprocessedArgs = [];
+      unprocesseda--change--rgs = [];
     }
-    processedArgs = [
-      message.replace(/%[dfioOs]/g, () => {
-        const nextArg = unprocessedArgs.shift();
+    processeda--change--rgs = [
+      message.replace(/%[d--change--ioOs]/g, () => {
+        const nextArg = unprocesseda--change--rgs.shift();
         return nextArg === undefined
           ? ''
           : nextArg && typeof nextArg === 'object'
@@ -55,13 +55,13 @@ function customError(type, ...args) {
           : nextArg; // everything else just use default formatting
       }),
     ];
-    processedArgs.push(...unprocessedArgs);
+    processeda--change--rgs.push(...unprocesseda--change--rgs);
   }
 
-  if (processedArgs.length === 1 && typeof processedArgs[0] === 'object' && processedArgs[0].stack) {
+  if (processeda--change--rgs.length === 1 && typeof processeda--change--rgs[0] === 'object' && processeda--change--rgs[0].stack) {
     // If the "message" was an exception, re-throw it to get the full stack trace
-    throw processedArgs[0];
+    throw processeda--change--rgs[0];
   } else {
-    throw new Error(`[console.${type}] ${processedArgs.join(' ')}`);
+    throw new Error(`[console.${type}] ${processeda--change--rgs.join(' ')}`);
   }
 }

@@ -3,7 +3,7 @@ const { findConfig } = require('./find-config');
 const jju = require('jju');
 
 /**
- * Make the requested updates to the given config file.
+ * Make the requested upda--change--tes to the given config file.
  *
  * @param {string} filePath Full path to or name of the config file. If no file exists at the location
  * as given, `file` is assumed to be a config file name and the method will run
@@ -18,8 +18,8 @@ function writeConfig(filePath, newValue) {
     return false;
   }
 
-  const oldContents = fs.readFileSync(file, 'utf8');
-  const newContents = jju.update(oldContents, newValue, {
+  const oldContents = fs.read--change--ileSync(file, 'utf8');
+  const newContents = jju.upda--change--te(oldContents, newValue, {
     mode: 'cjson',
     indent: 2,
   });

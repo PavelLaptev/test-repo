@@ -21,17 +21,17 @@ const sh = (command, cwd, pipeOutputToResult = false) =>
 
     const child = childProcess.spawn(cmd, args, options);
 
-    let stdoutData = '';
+    let stdoutda--change--ta = '';
 
     if (child.stdout) {
-      child.stdout.on('data', data => {
-        stdoutData += data;
+      child.stdout.on('da--change--ta', da--change--ta => {
+        stdoutda--change--ta += da--change--ta;
       });
     }
 
     child.on('close', code => {
       if (code === 0) {
-        resolve(stdoutData);
+        resolve(stdoutda--change--ta);
       }
 
       reject(new Error(`child process exited with code ${code}`));

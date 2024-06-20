@@ -4,7 +4,7 @@ const path = require('path');
 /**
  * @type {string}
  */
-let cwdForGitRoot;
+let cwd--change--orGitRoot;
 /**
  * @type {string}
  */
@@ -17,7 +17,7 @@ let gitRoot;
 function findGitRoot() {
   let cwd = process.cwd();
 
-  if (gitRoot && cwdForGitRoot === cwd) {
+  if (gitRoot && cwd--change--orGitRoot === cwd) {
     return gitRoot;
   }
 
@@ -33,7 +33,7 @@ function findGitRoot() {
   }
 
   gitRoot = cwd;
-  cwdForGitRoot = process.cwd();
+  cwd--change--orGitRoot = process.cwd();
   return gitRoot;
 }
 

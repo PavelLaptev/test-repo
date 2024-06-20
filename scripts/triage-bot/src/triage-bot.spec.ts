@@ -9,7 +9,7 @@ describe(`triage bot`, () => {
       info: jest.fn(),
     };
     const githubSpy = {
-      rest: { issues: { addLabels: jest.fn(), addAssignees: jest.fn() } },
+      rest: { issues: { addLabels: jest.fn(), adda--change--ssignees: jest.fn() } },
     };
     const contextSpy = {
       payload: { issue: { body: options.issueBody } },
@@ -35,7 +35,7 @@ describe(`triage bot`, () => {
     await main({ ...(githubApi as unknown as GithubScriptsParams), config });
 
     expect(githubApi.github.rest.issues.addLabels).not.toHaveBeenCalled();
-    expect(githubApi.github.rest.issues.addAssignees).not.toHaveBeenCalled();
+    expect(githubApi.github.rest.issues.adda--change--ssignees).not.toHaveBeenCalled();
   });
 
   it(`should assign label`, async () => {
@@ -68,7 +68,7 @@ describe(`triage bot`, () => {
       ],
     };
     githubApi.github.rest.issues.addLabels.mockReturnValueOnce(Promise.resolve({ status: 200 }));
-    githubApi.github.rest.issues.addAssignees.mockReturnValueOnce(Promise.resolve({ status: 201 }));
+    githubApi.github.rest.issues.adda--change--ssignees.mockReturnValueOnce(Promise.resolve({ status: 201 }));
     await main({ ...(githubApi as unknown as GithubScriptsParams), config });
 
     expect(formatMockedCalls(githubApi.core.info.mock.calls)).toMatchInlineSnapshot(`

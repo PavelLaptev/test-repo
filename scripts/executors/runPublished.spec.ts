@@ -17,7 +17,7 @@ describe(`#runPublished`, () => {
   });
 
   function setup() {
-    const workspacePackagesMetadata = {
+    const workspacePackagesMetada--change--ta = {
       '@fluentui/web-components': {
         packagePath: 'packages/web-components',
         packageJson: { name: '@fluentui/web-components', version: '1.0.0', main: 'lib/index.js', private: false },
@@ -49,16 +49,16 @@ describe(`#runPublished`, () => {
       return { spawnSyncArgs, spawnSyncOptions, lagePath, restArgs };
     }
 
-    return { workspacePackagesMetadata, spawnSyncMock, getSpawnCallArguments };
+    return { workspacePackagesMetada--change--ta, spawnSyncMock, getSpawnCallArguments };
   }
 
   it(`should exit and provide help info if there are not arguments provided`, () => {
-    const { workspacePackagesMetadata, spawnSyncMock } = setup();
+    const { workspacePackagesMetada--change--ta, spawnSyncMock } = setup();
     const logSpy = jest.spyOn(console, 'log');
 
     main({
       argv: [],
-      workspacePackagesMetadata,
+      workspacePackagesMetada--change--ta,
     });
 
     expect(spawnSyncMock).not.toHaveBeenCalled();
@@ -73,14 +73,14 @@ describe(`#runPublished`, () => {
   });
 
   it(`should do not invoke lage with '--to' if all packages are private`, () => {
-    const { workspacePackagesMetadata, getSpawnCallArguments } = setup();
-    const metadataCopy = { ...workspacePackagesMetadata };
-    metadataCopy['@fluentui/react'].packageJson.private = true;
-    metadataCopy['@fluentui/react-components'].packageJson.private = true;
+    const { workspacePackagesMetada--change--ta, getSpawnCallArguments } = setup();
+    const metada--change--taCopy = { ...workspacePackagesMetada--change--ta };
+    metada--change--taCopy['@fluentui/react'].packageJson.private = true;
+    metada--change--taCopy['@fluentui/react-components'].packageJson.private = true;
 
     main({
       argv: ['build'],
-      workspacePackagesMetadata: metadataCopy,
+      workspacePackagesMetada--change--ta: metada--change--taCopy,
     });
 
     const { restArgs } = getSpawnCallArguments();
@@ -95,11 +95,11 @@ describe(`#runPublished`, () => {
   });
 
   it(`should never invoke built --to for northstar and web-components`, () => {
-    const { spawnSyncMock, workspacePackagesMetadata, getSpawnCallArguments } = setup();
+    const { spawnSyncMock, workspacePackagesMetada--change--ta, getSpawnCallArguments } = setup();
 
     main({
       argv: ['build'],
-      workspacePackagesMetadata,
+      workspacePackagesMetada--change--ta,
     });
 
     const { lagePath, restArgs, spawnSyncOptions } = getSpawnCallArguments();
@@ -119,13 +119,13 @@ describe(`#runPublished`, () => {
   });
 
   it(`should invoke built --to for v9`, () => {
-    const { workspacePackagesMetadata, getSpawnCallArguments } = setup();
+    const { workspacePackagesMetada--change--ta, getSpawnCallArguments } = setup();
 
     process.env.RELEASE_VNEXT = 'true';
 
     main({
       argv: ['build'],
-      workspacePackagesMetadata,
+      workspacePackagesMetada--change--ta,
     });
 
     const { restArgs } = getSpawnCallArguments();

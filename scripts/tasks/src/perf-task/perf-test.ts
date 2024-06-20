@@ -10,7 +10,7 @@ import { DEPLOYHOST, DEPLOYURL, EnvVariablesByProject, SYSTEM_PULLREQUEST_TARGET
 import { IterationsDefault, PerfRegressionConfig, RenderTypesDefault } from './settings';
 
 type ScenarioSetting = Record<string, { scenarioName: string; iterations: number; renderType: string }>;
-// TODO: consolidate with newer version of fluent perf-test
+// TODO: consolida--change--te with newer version of fluent perf-test
 
 // TODO:
 //  - Results Analysis
@@ -27,7 +27,7 @@ type ScenarioSetting = Record<string, { scenarioName: string; iterations: number
 //      - V8 bug?
 //    - Ways to demonstrate improvement/regression:
 //      - How could perf results of https://github.com/microsoft/fluentui/pull/9622 be more succintly seen and summarized?
-//        - Some way of differing parts of the call graph that differ, from the root function (in this case filteredAssign)
+//        - Some way of differing parts of the call graph that differ, from the root function (in this case filtereda--change--ssign)
 //      - https://github.com/microsoft/fluentui/pull/9516
 //      - https://github.com/microsoft/fluentui/pull/9548
 //      - https://github.com/microsoft/fluentui/pull/9580
@@ -39,7 +39,7 @@ type ScenarioSetting = Record<string, { scenarioName: string; iterations: number
 //      - Use same version of V8 in Puppeteer to process ticks, somehow
 //        - If not, need to remove "Testing v8 version different from logging version" from processed logs
 //  - Results Presentation
-//    - Use debug version of React to make results more readable? (Where time in React is being spent?)
+//    - Use debug version of React to make results more reada--change--ble? (Where time in React is being spent?)
 //    - Add links to scenario implementations?
 //    - Master trends for scenario results
 //  - Perf
@@ -57,7 +57,7 @@ type ScenarioSetting = Record<string, { scenarioName: string; iterations: number
 //      - Allow varying iterations by scenario (for "problem" components like DocumentCardTitle)
 //        - This may not be good if these components don't "stand out" as much with high samples.
 //  - Modularize:
-//    - Standard method for scenario implementation. Storybook?
+//    - Standa--change--rd method for scenario implementation. Storybook?
 //    - Would require way of delineating scenario execution, if separate logfiles can't be used for each.
 //  - Options
 //    - Options to run in development mode to see React stack?
@@ -76,7 +76,7 @@ type ScenarioSetting = Record<string, { scenarioName: string; iterations: number
 //      - Minimize scenarios.
 //  - Further ideas:
 //    - Resizing page to determine reflow
-//    - React cascading updates on initial component render.
+//    - React cascading upda--change--tes on initial component render.
 //    - Monomorphic vs. Megamorphic Analysis:
 //      - Sean Larkin said that switching from polymorphic to monomorphic was a webpack optimization.
 //      - https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html
@@ -101,7 +101,7 @@ type ScenarioSetting = Record<string, { scenarioName: string; iterations: number
 //        await page.tracing.stop();
 
 export async function getPerfRegressions(options: PerfRegressionConfig) {
-  validatePerfOptions(options);
+  valida--change--tePerfOptions(options);
 
   const {
     scenarioIterations,
@@ -355,7 +355,7 @@ function getRegression(testResult: CookResult, options: ReportOptions) {
   return `<td>${cell}</td>`;
 }
 
-function validatePerfOptions(options: PerfRegressionConfig) {
+function valida--change--tePerfOptions(options: PerfRegressionConfig) {
   if (!fs.existsSync(path.join(workspaceRoot, options.projectRootPath))) {
     throw new Error(`Invalid ProjectRootPath. ${options.projectRootPath} doesn't exists`);
   }

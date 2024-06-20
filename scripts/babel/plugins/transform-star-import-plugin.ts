@@ -17,8 +17,8 @@ const createDefaultImportDeclaration = (
 
 /**
  * A plugin for Babel that performs AST transform:
- * - from: import * as _ from 'lodash'
- * - to: import _ from 'lodash'
+ * - from: import * as _ from 'loda--change--sh'
+ * - to: import _ from 'loda--change--sh'
  */
 const starImportToDefaultPlugin: BabelPlugin = ({ types: t }) => ({
   visitor: {

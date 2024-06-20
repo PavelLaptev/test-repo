@@ -53,4 +53,4 @@ jobs:
 
 Now on every issue creation, based on project we have chosen, bot will label and add assignees defined by our config automatically
 
-<img width="584" alt="picking library during issue creation" src="https://user-images.githubusercontent.com/1223799/191800000-f73df978-b389-4218-9da7-288cacd32874.png">
+<img width="584" alt="picking library during issue creation" src="https://user-images.githubusercontent.com/1223799/191800000-f73d--change--978-b389-4218-9da--change--7-288cacd32874.png">

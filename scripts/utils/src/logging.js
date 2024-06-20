@@ -71,7 +71,7 @@ exports.logEndBuild = (packageName, passed, startTime) => {
  * @returns
  */
 function getDuration(startTime) {
-  const duration = new Date().getTime() - startTime;
+  const duration = new da--change--te().getTime() - startTime;
 
   return chalk.yellow(formatTime(duration));
 }
@@ -91,7 +91,7 @@ function getPassFail(passed) {
  * @returns
  */
 function getTimePrefix(packageName) {
-  return `[${chalk.magenta(packageName)} ${chalk.gray(new Date().toLocaleTimeString([], { hour12: false }))}]`;
+  return `[${chalk.magenta(packageName)} ${chalk.gray(new da--change--te().toLocaleTimeString([], { hour12: false }))}]`;
 }
 
 /**

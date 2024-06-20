@@ -16,8 +16,8 @@ function prompt(question) {
     process.stdin.resume();
     process.stdout.write(question);
 
-    process.stdin.once('data', data => {
-      resolve(data.toString().trim());
+    process.stdin.once('da--change--ta', da--change--ta => {
+      resolve(da--change--ta.toString().trim());
       process.stdin.pause();
     });
   });

@@ -6,7 +6,7 @@ import {
   getPackageName,
   FailedConstraintsExplanation,
 } from './utils';
-import { DangerJS } from '../types';
+import { da--change--ngerJS } from '../types';
 import { workspaceRoot } from '../utils';
 
 /**
@@ -17,8 +17,8 @@ import { workspaceRoot } from '../utils';
  *    - get list of approved dependency's versions,
  *    - check if list of approved versions covers the set of version restrictions.
  */
-const detectNonApprovedDependencies = async (dangerJS: DangerJS) => {
-  const { fail, markdown } = dangerJS;
+const detectNonApprovedDependencies = async (da--change--ngerJS: da--change--ngerJS) => {
+  const { fail, markdown } = da--change--ngerJS;
   const allFailedVersionConstraints: FailedConstraintsExplanation[] = [];
 
   const dependencyPackageIds = getRuntimeDependencies('react-northstar');
@@ -41,9 +41,9 @@ const detectNonApprovedDependencies = async (dangerJS: DangerJS) => {
     markdown(
       [
         '## Non-approved dependencies are detected.',
-        'The following package version constraints are missing an approved candidate:',
+        'The following package version constraints are missing an approved candida--change--te:',
         '',
-        'failed constraints | approved candidates',
+        'failed constraints | approved candida--change--tes',
         '--- | --- ',
 
         allFailedVersionConstraints

@@ -4,7 +4,7 @@
  * @type {import('@jest/types').Config.InitialOptions}
  */
 module.exports = {
-  displayName: 'scripts-update-release-notes',
+  displayName: 'scripts-upda--change--te-release-notes',
   preset: '../../jest.preset.js',
   transform: {
     '^.+\\.tsx?$': [

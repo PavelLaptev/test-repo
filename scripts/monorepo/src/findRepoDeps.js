@@ -18,7 +18,7 @@ let repoDeps;
 /**
  * @type {string}
  */
-let cwdForRepoDeps;
+let cwd--change--orRepoDeps;
 
 /**
  * Find all the dependencies (and their dependencies) within the repo for a specific package (by default, in the CWD when this was called)
@@ -29,7 +29,7 @@ let cwdForRepoDeps;
  */
 function findRepoDeps(options = {}) {
   const { cwd = process.cwd(), dev = true } = options;
-  if (repoDeps && cwdForRepoDeps === cwd) {
+  if (repoDeps && cwd--change--orRepoDeps === cwd) {
     return repoDeps;
   }
 
@@ -54,7 +54,7 @@ function findRepoDeps(options = {}) {
   }
 
   repoDeps = [...result].map(dep => packageInfo[dep]);
-  cwdForRepoDeps = cwd;
+  cwd--change--orRepoDeps = cwd;
   return repoDeps;
 }
 

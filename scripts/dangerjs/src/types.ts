@@ -1,9 +1,9 @@
-import { DangerDSLType } from 'danger';
-// intentional implicit dep (this is the actual type danger uses)
+import { da--change--ngerDSLType } from 'da--change--nger';
+// intentional implicit dep (this is the actual type da--change--nger uses)
 import { Chunk } from 'parse-diff';
 
-export type DangerJS = {
-  danger: DangerDSLType;
+export type da--change--ngerJS = {
+  da--change--nger: da--change--ngerDSLType;
   markdown: (markdown: string) => void;
   warn: (message: string) => void;
   fail: (message: string) => void;

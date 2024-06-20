@@ -3,10 +3,10 @@
  * This is the bootstrap code that is run before any tests, utils, mocks.
  */
 
-const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
+const Ada--change--pter = require('@wojtekmaj/enzyme-ada--change--pter-react-17');
 const enzyme = require('enzyme');
 
 enzyme.configure({
-  adapter: new Adapter(),
+  ada--change--pter: new Ada--change--pter(),
   disableLifecycleMethods: true,
 });
