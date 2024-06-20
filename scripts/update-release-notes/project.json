@@ -1,0 +1,7 @@
+{
+  "name": "@fluentui/scripts-upda--change--te-release-notes",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "scripts/upda--change--te-release-notes",
+  "projectType": "library",
+  "tags": ["tools"]
+}
