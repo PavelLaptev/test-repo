@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Anestassia Maris",
+    "job": "Technical Writer",
+    "image": "https://zapchat.by/upload/company/logo/torgovyy-dom-avtozapchastbzg9.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Bernardine Doig",
+    "job": "Health Coach I",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg"
+  },
+  {
+    "id": 3,
+    "name": "Marten Spinello",
+    "job": "Engineer II",
+    "image": "https://cdn2.thecatapi.com/images/_6x-3TiCA.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Garrik Moxsom",
+    "job": "Research Nurse",
+    "image": "https://webimages.mongodb.com/_com_assets/cms/lbf588qi303qt7wup-cms-home-image.svg?auto=format%252Ccompress"
+  },
+  {
+    "id": 5,
+    "name": "Janeva Cornelisse",
+    "job": "Paralegal",
+    "image": "https://robohash.org/eiusporroest.jpg?size=500x500&set=set1"
+  },
+  {
+    "id": 6,
+    "name": "Alejandrina Tharme",
+    "job": "Electrical Engineer",
+    "image": "https://robohash.org/uttemporaaut.jpg?size=500x500&set=set1"
+  },
+  {
+    "id": 7,
+    "name": "Lorita D'Alton",
+    "job": "Senior Cost Accountant",
+    "image": "https://global-uploads.webflow.com/5dd3495558fd7f3d1fcb52bc/60e4d3beea440c03145cc5c3_Testimonial.svg"
+  }
+]

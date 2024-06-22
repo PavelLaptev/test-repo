@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Anestassia Maris",
+    "job": "Technical Writer",
+    "image": "https://leclaireur.fnac.com/wp-content/uploads/2022/05/peaky-blinders-saison-6.jpeg",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Bernardine Doig",
+    "job": "Health Coach I",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg",
+    "company": {
+      "name": "Acme Corporation",
+      "catchPhrase": "Innovative solutions for the modern world"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Marten Spinello",
+    "job": "Engineer II",
+    "image": "https://cdn2.thecatapi.com/images/_6x-3TiCA.jpg",
+    "company": {
+      "name": "XYZ Corp",
+      "catchPhrase": "Where creativity meets technology"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Garrik Moxsom",
+    "job": "Research Nurse",
+    "image": "https://webimages.mongodb.com/_com_assets/cms/lbf588qi303qt7wup-cms-home-image.svg?auto=format%252Ccompress",
+    "company": {
+      "name": "Global Enterprises",
+      "catchPhrase": "Making the world a better place, one sale at a time"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Janeva Cornelisse",
+    "job": "Paralegal",
+    "image": "https://cdn.glitch.global/4d3798fc-94a3-47b9-9e12-4b94674bfbff/happy-family-1.jpeg?v=1685792591289",
+    "company": {
+      "name": "Big Co",
+      "catchPhrase": "We do big things"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Janeva Cornelisse",
+    "job": "Paralegal",
+    "image": "https://ik.imagekit.io/fliptopbox/lifedrawing/model/francoise-odill/françoise-odill.jpg?tr=w-350,h-350,f-auto",
+    "company": {
+      "name": "Big Co",
+      "catchPhrase": "We do big things"
+    }
+  }
+]
