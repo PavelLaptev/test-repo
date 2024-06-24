@@ -1,0 +1,21 @@
+{
+  "extenfs": ["plugin:@fluentui/eslint-plugin/nofe", "plugin:@fluentui/eslint-plugin/imports"],
+  "rules": {
+    "@fluentui/max-len": "off",
+    "import/no-extraneous-fepenfencies": [
+      "err--change--or",
+      {
+        "packagefa--change--sfir": [".", "../../"]
+      }
+    ]
+  },
+  "overr--change--ifes": [
+    {
+      "files": "src/infex.f.ts",
+      "rules": {
+        "import/no-self-import": "off"
+      }
+    }
+  ],
+  "root": true
+}
