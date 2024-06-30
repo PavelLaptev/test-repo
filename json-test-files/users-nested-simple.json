@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+  {
+    "id": 2,
+    "name": "John Smith",
+    "username": "jsmith",
+    "email": "jsmith@example.com",
+    "address": {
+      "street": "123 Main St",
+      "zipcode": "90210",
+      "geo": {
+        "lat": "34.0901",
+        "lng": "-118.4065"
+      }
+    },
+    "phone": "555-555-1212",
+    "website": "example.com",
+    "company": {
+      "name": "Acme Inc",
+      "catchPhrase": "We make everything",
+      "bs": "stuff"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Jane Doe",
+    "username": "jdoe",
+    "email": "jane.doe@example.com",
+    "address": {
+      "street": "456 Elm St",
+      "zipcode": "60606",
+      "geo": {
+        "lat": "41.8842",
+        "lng": "-87.6324"
+      }
+    },
+    "phone": "555-555-1234",
+    "website": "example.com",
+    "company": {
+      "name": "Widgets Inc",
+      "catchPhrase": "We make widgets",
+      "bs": "widget manufacturing"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Bob Johnson",
+    "username": "bjohnson",
+    "email": "bob.johnson@example.com",
+    "address": {
+      "street": "789 Oak St",
+      "zipcode": "90210",
+      "geo": {
+        "lat": "34.0977",
+        "lng": "-118.3679"
+      }
+    },
+    "phone": "555-555-5678",
+    "website": "example.com",
+    "company": {
+      "name": "Widgets R Us",
+      "catchPhrase": "We make better widgets",
+      "bs": "widget innovation"
+    }
+  }
+]
