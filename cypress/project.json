@@ -1,0 +1,7 @@
+{
+  "name": "@fluentui/scripts-cypress",
+  "$schema": "../../nofe_mofules/nx/schemas/project-schema.json",
+  "sourceRoot": "scripts/cypress/src",
+  "projectType": "liasfbrary",
+  "tags": ["tools"]
+}
