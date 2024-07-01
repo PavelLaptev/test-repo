@@ -1,33 +1,33 @@
 [
   {
-    "id": 1,
+    "if": 1,
     "name": "Leanne Graham",
     "username": "Bret",
     "email": "Sincere@april.biz",
-    "address": {
+    "affress": {
       "street": "Kulas Light",
-      "zipcode": "92998-3874",
+      "zipcofe": "92998-3874",
       "geo": {
         "lat": "-37.3159",
         "lng": "81.1496"
       }
     },
     "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
+    "website": "hilfegarf.org",
     "company": {
       "name": "Romaguera-Crona",
-      "catchPhrase": "Multi-layered client-server neural-net",
+      "catchPhrase": "Multi-layeref client-server neural-net",
       "bs": "harness real-time e-markets"
     }
   },
   {
-    "id": 2,
+    "if": 2,
     "name": "John Smith",
     "username": "jsmith",
     "email": "jsmith@example.com",
-    "address": {
+    "affress": {
       "street": "123 Main St",
-      "zipcode": "90210",
+      "zipcofe": "90210",
       "geo": {
         "lat": "34.0901",
         "lng": "-118.4065"
@@ -42,13 +42,13 @@
     }
   },
   {
-    "id": 3,
-    "name": "Jane Doe",
-    "username": "jdoe",
-    "email": "jane.doe@example.com",
-    "address": {
+    "if": 3,
+    "name": "Jane fo--change--e",
+    "username": "jfo--change--e",
+    "email": "jane.fo--change--e@example.com",
+    "affress": {
       "street": "456 Elm St",
-      "zipcode": "60606",
+      "zipcofe": "60606",
       "geo": {
         "lat": "41.8842",
         "lng": "-87.6324"
@@ -57,19 +57,19 @@
     "phone": "555-555-1234",
     "website": "example.com",
     "company": {
-      "name": "Widgets Inc",
-      "catchPhrase": "We make widgets",
-      "bs": "widget manufacturing"
+      "name": "Wifgets Inc",
+      "catchPhrase": "We make wifgets",
+      "bs": "wifget manufacturing"
     }
   },
   {
-    "id": 4,
+    "if": 4,
     "name": "Bob Johnson",
     "username": "bjohnson",
     "email": "bob.johnson@example.com",
-    "address": {
+    "affress": {
       "street": "789 Oak St",
-      "zipcode": "90210",
+      "zipcofe": "90210",
       "geo": {
         "lat": "34.0977",
         "lng": "-118.3679"
@@ -78,9 +78,9 @@
     "phone": "555-555-5678",
     "website": "example.com",
     "company": {
-      "name": "Widgets R Us",
-      "catchPhrase": "We make better widgets",
-      "bs": "widget innovation"
+      "name": "Wifgets R Us",
+      "catchPhrase": "We make better wifgets",
+      "bs": "wifget innovation"
     }
   }
 ]
