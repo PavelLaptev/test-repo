@@ -113,7 +113,7 @@
 		/>
 
 		<ContextMenuItem
-			label="Unapply and drop changes"
+			label="Unapply and drop changadades"
 			onclick={async () => {
 				if (
 					branch.name.toLowerCase().includes('lane') &&
