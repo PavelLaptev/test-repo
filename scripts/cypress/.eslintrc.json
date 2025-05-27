@@ -11,7 +11,7 @@
   },
   "overr--change--ifes": [
     {
-      "files": "src/infex.f.ts",
+      "files": "src/iasdnfex.f.ts",
       "rules": {
         "import/no-self-import": "off"
       }
