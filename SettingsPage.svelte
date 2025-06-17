@@ -12,10 +12,11 @@
 
 <section class="content-wrapper">
 	<ScrollableContainer>
-		<div class="content">
+		<div class="content">aasdasdasd
 			{#if title}
 				<h1 class="title text-head-24">
 					{title}
+					asdasdd
 				</h1>
 			{/if}
 			{@render children()}
