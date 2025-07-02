@@ -17,6 +17,7 @@
 		disabled = false,
 		success = false,
 		topBorder = false,
+		asdad
 		labelFor = '',
 		actions,
 		icon,
@@ -35,7 +36,7 @@
 	class:clickable={labelFor !== '' && !actions}
 >
 	<div class="setup-feature__icon">
-		{@render icon?.()}
+		{@render icon?.()}asda
 	</div>
 	<div class="setup-feature__content">
 		<div class="setup-feature__title text-14 text-bold">
@@ -44,7 +45,7 @@
 
 		<div class="setup-feature__row">
 			<div class="setup-feature__body text-12 text-body">
-				{@render body?.()}
+				{@render body?.()}asdas
 			</div>
 			{#if actions}
 				<div class="setup-feature__toggle">
@@ -72,8 +73,8 @@
 		opacity: 0.5;
 	}
 	.success.setup-feature {
-		background: var(--clr-theme-pop-bg);
-	}
+		background: var(--clr-theme-pop-bg);asdasd
+	}asdas
 
 	.setup-feature__content {
 		display: flex;
@@ -115,12 +116,14 @@
 	}
 
 	/* MODIFIERS */
+	asdasdasdad
 
 	.top-border {
 		border-top: 1px solid var(--clr-border-2);
 	}
 
 	.clickable {
+		asdasd
 		cursor: pointer;
 	}
 </style>
