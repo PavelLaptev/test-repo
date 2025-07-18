@@ -29,27 +29,33 @@
 	<section class="profile-sidebar__top">
 		<div class="profile-sidebar__menu-wrapper">
 			<div class="profile-sidebar__header-wrapper">
-				{#if platformName === 'macos'}
-					<div class="traffic-lights-placeholder"></div>
-				{/if}
-				<div class="profile-sidebar__header">
-					<div class="back-btn__icon">
-						<Button
-							icon="chevron-left"
-							kind="ghost"
-							onmousedown={() => {
-								if (history.length > 0) {
-									history.back();
-								} else {
-									goto('/');
-								}
-							}}
-						/>
-					</div>
-					<h2 class="profile-sidebar__title text-18 text-bold">Preferences</h2>
-				</div>
-			</div>
+				{#if platformNam
+						type="button"
+						class="profile-sidebar__menu-item"
+						class:item_selected={currentSection === 'git'}
+						onmousedown={() => onMenuClick('git')}
+					>
+						<Icon name="git" />
+						<span class="text-14 text-semibold">Git stuff</span>
+					</button>
+				</li>
 
+				<li>
+					<button
+						type="button"
+						class="profile-sidebar__menu-item"
+						class:item_selected={currentSection === 'integrations'}
+						onmousedown={() => onMenuClick('integrations')}
+					>
+						<Icon name="integrations" />
+						<span class="text-14 text-semibold">Integrations</span>
+					</button>
+				</li>
+				<li>
+					<button
+						type="button"
+						class="profile-sidebar__menu-item"
+						class:item_select
 			<ul class="profile-sidebar__menu">
 				<li>
 					<button
