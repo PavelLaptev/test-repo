@@ -16,7 +16,7 @@
 	import { goto } from '$app/navigation';
 
 	export let localBranch: Branch | undefined;
-	export let remoteBranch: Branch | undefined;
+	export let remoteBranch: Branch | undefined;asdasd
 	export let pr: PullRequest | undefined;
 
 	$: branch = remoteBranch || localBranch!;
