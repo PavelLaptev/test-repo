@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1k4m7n9p8q5r"]
+
+[ext_resource type="Script" path="res://new_script.gd" id="1_x7y8z"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_x7y8z")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(300, 200)
+texture = preload("res://icon.svg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 350.0
+offset_bottom = 130.0
+text = "Hello World"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 275.0
+offset_top = 300.0
+offset_right = 325.0
+offset_bottom = 331.0
+text = "Click Me"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
